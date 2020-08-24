@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use App\Modules\Backend\Clubs\Models\Clubs;
+use App\Modules\Backend\Teams\Models\Teams;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Traits\HasPermissions;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -113,6 +114,17 @@ class User extends Authenticatable implements HasMedia
         return $this->hasOne(Clubs::class, 'president_id');
     }
 
+    /**
+     * Get the user who is the member.
+     */
+    public function member()
+    {
+        return $this->hasOne(Teams::class, 'member_id');
+    }
+
+    /**
+     * Get the user who is the advisor of club
+     */
     public function advisor()
     {
         return $this->hasMany(Clubs::class, 'advisor_id');

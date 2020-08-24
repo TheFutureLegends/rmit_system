@@ -7,30 +7,30 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Modules\Backend\Clubs\Models\Clubs;
+use App\Modules\Backend\Teams\Models\Teams;
+use App\Modules\Backend\Teams\Repositories\TeamRepositoryInterface;
 use App\Modules\Backend\Users\Repositories\UserRepositoryInterface;
 
 class UserRepository implements UserRepositoryInterface
 {
-    public function __construct()
+    public function __construct(TeamRepositoryInterface $teamRepository)
     {
-        # code...
+        $this->teamRepository = $teamRepository;
     }
 
     public function loadAdvisorOptions(string $search = null)
     {
         $result = array();
 
-        if ($search != null) {
-            $users = User::role('advisor')
+        $users = User::role('advisor')
             ->where(function ($query) use ($search) {
-                return $query->where([
-                    ['email', 'LIKE', '%'.$search.'%']
-                ]);
+                if ($search != null) {
+                    return $query->where([
+                        ['email', 'LIKE', '%'.$search.'%']
+                    ]);
+                }
             })
             ->get();
-        } else {
-            $users = User::role('advisor')->get();
-        }
 
         foreach ($users as $key => $value) {
             $init["id"] = $value->id;
@@ -49,20 +49,16 @@ class UserRepository implements UserRepositoryInterface
 
         $advisor_id = Clubs::query()->distinct('advisor_id')->pluck('advisor_id');
 
-        if ($search != null) {
-            $users = User::role('advisor')
+        $users = User::role('advisor')
             ->whereNotIn('id', $advisor_id)
             ->where(function ($query) use ($search) {
-                return $query->where([
-                    ['email', 'LIKE', '%'.$search.'%']
-                ]);
+                if ($search != null) {
+                    return $query->where([
+                        ['email', 'LIKE', '%'.$search.'%']
+                    ]);
+                }
             })
             ->get();
-        } else {
-            $users = User::role('advisor')
-            ->whereNotIn('id', $advisor_id)
-            ->get();
-        }
 
         foreach ($users as $key => $value) {
             $init["id"] = $value->id;
@@ -79,18 +75,28 @@ class UserRepository implements UserRepositoryInterface
     {
         $result = array();
 
-        if ($search != null) {
+        if (Auth::user()->hasRole('advisor')) {
             $users = User::role('president')
+            ->whereIn('id', Teams::query()->where('leader_id', Auth::id())->pluck('member_id'))
             ->whereNotIn('id', Clubs::query()->pluck('president_id'))
             ->where(function ($query) use ($search) {
-                return $query->where([
-                    ['email', 'LIKE', '%'.$search.'%']
-                ]);
+                if ($search != null) {
+                    return $query->where([
+                        ['email', 'LIKE', '%'.$search.'%']
+                    ]);
+                }
             })
             ->get();
         } else {
             $users = User::role('president')
             ->whereNotIn('id', Clubs::query()->pluck('president_id'))
+            ->where(function ($query) use ($search) {
+                if ($search != null) {
+                    return $query->where([
+                        ['email', 'LIKE', '%'.$search.'%']
+                    ]);
+                }
+            })
             ->get();
         }
 
@@ -116,11 +122,14 @@ class UserRepository implements UserRepositoryInterface
 
             // ->orWhere("name", "president")
         } else if (Auth::user()->hasRole('advisor')) {
+
             return User::query()
-            ->whereIn('id', Clubs::query()->where([
+            ->whereIn('id', Teams::query()->where('leader_id', Auth::id())->pluck('member_id') )
+            ->OrWhereIn('id', Clubs::query()->where([
                 ['advisor_id', '=', Auth::id()]
             ])->pluck('president_id'))
             ->get();
+
         }
     }
 
@@ -151,6 +160,8 @@ class UserRepository implements UserRepositoryInterface
 
             $user->assignRole('president');
 
+            $this->teamRepository->store($user->toArray());
+
         } else {
             $user->assignRole($request['role']);
         }
@@ -162,6 +173,7 @@ class UserRepository implements UserRepositoryInterface
         return $result;
     }
 
+    // Transfer club advisor
     public function update(string $email, array $request)
     {
         $user = $this->findByEmail($email);

@@ -5,7 +5,7 @@
     <div class="page-title-wrapper">
         <div class="page-title-heading">
             <div class="page-title-icon">
-                <i class="fas fa-list"></i>
+                <i class="fas fa-list icon-gradient bg-mean-fruit"></i>
             </div>
             <div>List of Users
                 <div class="page-title-subheading">

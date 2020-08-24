@@ -72,6 +72,8 @@ class ClubRepository implements ClubRepositoryInterface
     {
         $club = Clubs::create($this->format($request));
 
+        $club->president->member->delete();
+
         $this->addFile($club, $request);
 
         return true;
@@ -84,6 +86,13 @@ class ClubRepository implements ClubRepositoryInterface
         $club->update($this->format($request));
 
         $this->addFile($club, $request);
+
+        return true;
+    }
+
+    public function destroy(Clubs $club)
+    {
+        $club->president->delete();
 
         return true;
     }

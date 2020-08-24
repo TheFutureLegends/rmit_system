@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Modules\Backend\Clubs\Models\Clubs;
+use App\Modules\Backend\Teams\Models\Teams;
 use App\Modules\Backend\Clubs\Repositories\ClubRepositoryInterface;
 
 class ClubController extends Controller
@@ -38,9 +39,9 @@ class ClubController extends Controller
 
         $init = array();
 
-        $clubs = $this->clubRepository->findAllClubs();
+        $this->club = $this->clubRepository->findAllClubs();
 
-        foreach ($clubs as $club) {
+        foreach ($this->club as $club) {
             do {
                 $badge = ($this->badges)[array_rand($this->badges)];
             } while (in_array($badge, $init));
@@ -51,7 +52,7 @@ class ClubController extends Controller
             }
         }
 
-        return DataTables::of($clubs)
+        return DataTables::of($this->club)
         ->addColumn('abbreviation', function ($club) {
             return $club->abbreviation;
         })
@@ -222,7 +223,7 @@ class ClubController extends Controller
 
         $this->authorize('delete', $this->club);
 
-        ($this->club)->delete();
+        $this->clubRepository->destroy($this->club);
 
         return response()->json(['message' => 'Update successfully!', 'status' => 200]);
     }

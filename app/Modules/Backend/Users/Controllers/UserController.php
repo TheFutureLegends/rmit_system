@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Modules\Backend\Clubs\Models\Clubs;
+use App\Modules\Backend\Teams\Models\Teams;
 use App\Modules\Backend\Users\Repositories\UserRepositoryInterface;
 
 class UserController extends Controller
@@ -52,7 +53,12 @@ class UserController extends Controller
 
         return DataTables::of($users)
         ->addColumn('name', function ($user) {
-            return $user->name;
+            $badge = '';
+
+            if (empty($user->president)) {
+                $badge .= '&nbsp;<span class="mb-2 mr-2 badge badge-pill badge-danger">Not assigned</span>';
+            }
+            return $user->name . $badge;
         })
         ->addColumn('email', function ($user) {
             return $user->email;
@@ -92,7 +98,7 @@ class UserController extends Controller
 
             return $result;
         })
-        ->rawColumns(['access', 'action'])
+        ->rawColumns(['name', 'access', 'action'])
         ->make(true);
     }
 

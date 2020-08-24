@@ -2,6 +2,8 @@
 
 namespace App\Modules\Backend\Clubs\Repositories;
 
+use App\Modules\Backend\Clubs\Models\Clubs;
+
 interface ClubRepositoryInterface
 {
     public function loadOptions(string $search = null);
@@ -13,4 +15,6 @@ interface ClubRepositoryInterface
     public function store(array $request);
 
     public function update(string $slug, array $request);
+
+    public function destroy(Clubs $club);
 }

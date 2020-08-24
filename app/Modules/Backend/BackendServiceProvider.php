@@ -35,13 +35,13 @@ class BackendServiceProvider extends ServiceProvider {
         }
     }
     public function register(){
-        $this->app->bind(TeamRepositoryInterface::class, TeamRepository::class);
-
         $this->app->bind(EventRepositoryInterface::class, EventRepository::class);
 
         $this->app->bind(ClubRepositoryInterface::class, ClubRepository::class);
 
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+
+        $this->app->bind(TeamRepositoryInterface::class, TeamRepository::class);
 
         $this->app->bind(RolesRepositoryInterface::class, RolesRepository::class);
 

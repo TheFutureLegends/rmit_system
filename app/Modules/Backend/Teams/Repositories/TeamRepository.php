@@ -19,22 +19,32 @@ class TeamRepository implements TeamRepositoryInterface
 
         if (Auth::user()->hasAnyRole(['advisor','president'])) {
             $result['leader_id'] = Auth::id();
-        }
 
-        if (isset($request['name'])) {
+            $result['member_id'] = $request['id'];
+
             $result['name'] = $request['name'];
-        }
 
-        if (isset($request['email'])) {
             $result['email'] = $request['email'];
-        }
 
-        if (Auth::user()->hasRole('president')) {
-            $result['type'] = $request['type'];
-        }
+            $roles = $request['roles'];
 
-        if (isset($request['major'])) {
-            $result['major'] = $request['major'];
+            $result['type'] = $roles[0]['name'];
+        } else {
+            if (isset($request['name'])) {
+                $result['name'] = $request['name'];
+            }
+
+            if (isset($request['email'])) {
+                $result['email'] = $request['email'];
+            }
+
+            if (Auth::user()->hasRole('president')) {
+                $result['type'] = $request['type'];
+            }
+
+            if (isset($request['major'])) {
+                $result['major'] = $request['major'];
+            }
         }
 
         return $result;

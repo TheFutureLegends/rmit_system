@@ -2,51 +2,51 @@
 
 use Illuminate\Support\Facades\Route;
 
-$namespace = 'App\Modules\Backend\Team\Controllers';
+$namespace = 'App\Modules\Backend\Teams\Controllers';
 Route::group(
-    ['module' => 'Team','prefix' => 'dashboard', 'namespace' => $namespace, 'middleware' => ['web', 'auth', 'permission:club.view|club.create|club.edit|club.delete']],
+    ['module' => 'Teams','prefix' => 'dashboard', 'namespace' => $namespace, 'middleware' => ['web', 'auth']],
     function () {
         Route::group(['prefix' => 'teams'], function () {
             // Route::get('/', [
-            //     'as' => 'clubs.index',
-            //     'uses' => 'ClubController@index'
+            //     'as' => 'teams.index',
+            //     'uses' => 'TeamController@index'
             // ]);
 
             // Route::post('/dataTable', [
-            //     'as' => 'clubs.dataTable',
-            //     'uses' => 'ClubController@dataTable'
+            //     'as' => 'teams.dataTable',
+            //     'uses' => 'TeamController@dataTable'
             // ]);
 
             // Route::post('/loadOptions', [
-            //     'as' => 'clubs.loadOptions',
-            //     'uses' => 'ClubController@loadOptions'
+            //     'as' => 'teams.loadOptions',
+            //     'uses' => 'TeamController@loadOptions'
             // ]);
         });
 
         Route::group(['prefix' => 'team'], function () {
             // Route::get('/create', [
-            //     'as' => 'club.create',
-            //     'uses' => 'ClubController@create'
+            //     'as' => 'team.create',
+            //     'uses' => 'TeamController@create'
             // ]);
 
             // Route::post('/store', [
-            //     'as' => 'club.store',
-            //     'uses' => 'ClubController@store'
+            //     'as' => 'team.store',
+            //     'uses' => 'TeamController@store'
             // ]);
 
             // Route::get('/edit/{slug}', [
-            //     'as' => 'club.edit',
-            //     'uses' => 'ClubController@edit'
+            //     'as' => 'team.edit',
+            //     'uses' => 'TeamController@edit'
             // ]);
 
             // Route::put('/update/{slug}', [
-            //    'as' => 'club.update',
-            //    'uses' => 'ClubController@update'
+            //    'as' => 'team.update',
+            //    'uses' => 'TeamController@update'
             // ]);
 
             // Route::delete('/delete/{slug}', [
-            //     'as' => 'club.destroy',
-            //     'uses' => 'ClubController@destroy'
+            //     'as' => 'team.destroy',
+            //     'uses' => 'TeamController@destroy'
             // ]);
         });
     }

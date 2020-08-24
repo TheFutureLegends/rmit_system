@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Modules\Backend\Clubs\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 
-class ClubController extends Controller
+class DummyController extends Controller
 {
     /**
      * Create a new authentication controller instance.
