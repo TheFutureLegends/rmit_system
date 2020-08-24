@@ -4,10 +4,12 @@ namespace App\Modules\Backend;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
 use App\Modules\Backend\Clubs\Repositories\ClubRepository;
+use App\Modules\Backend\Teams\Repositories\TeamRepository;
 use App\Modules\Backend\Users\Repositories\UserRepository;
 use App\Modules\Backend\Roles\Repositories\RolesRepository;
 use App\Modules\Backend\Events\Repositories\EventRepository;
 use App\Modules\Backend\Clubs\Repositories\ClubRepositoryInterface;
+use App\Modules\Backend\Teams\Repositories\TeamRepositoryInterface;
 use App\Modules\Backend\Users\Repositories\UserRepositoryInterface;
 use App\Modules\Backend\Roles\Repositories\RolesRepositoryInterface;
 use App\Modules\Backend\Events\Repositories\EventRepositoryInterface;
@@ -33,6 +35,8 @@ class BackendServiceProvider extends ServiceProvider {
         }
     }
     public function register(){
+        $this->app->bind(TeamRepositoryInterface::class, TeamRepository::class);
+
         $this->app->bind(EventRepositoryInterface::class, EventRepository::class);
 
         $this->app->bind(ClubRepositoryInterface::class, ClubRepository::class);

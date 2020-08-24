@@ -15,14 +15,16 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('president_id');
+            $table->uuid('leader_id');
+            $table->uuid('member_id')->nullable(true);
             $table->string('name');
             $table->string('email');
-            $table->string('type');
+            $table->string('type')->default('member');
             $table->string('major')->nullable(true);
             $table->timestamps();
 
-            $table->foreign('president_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('leader_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('member_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

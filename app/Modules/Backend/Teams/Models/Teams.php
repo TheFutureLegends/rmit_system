@@ -43,7 +43,7 @@ class Teams extends Model
      * @var array
      */
     protected $fillable = [
-        'president_id', 'name', 'email', 'type', 'major'
+        'leader_id', 'member_id', 'name', 'email', 'type', 'major'
     ];
 
     /**
