@@ -14,26 +14,22 @@ class ClubRepository implements ClubRepositoryInterface
     {
         $result = array();
 
-        if ($search != null) {
-            if (Auth::user()->hasAnyRole(['super-admin', 'admin'])) {
-                $clubs = Clubs::query()
-                ->where([
-                    ['name', 'LIKE', '%'.$search.'%']
-                ])
-                ->get();
-            } else {
-                $clubs = Clubs::query()
-                ->where([
+        $clubs = Clubs::query()
+        ->where(function ($query) {
+            if (!Auth::user()->hasAnyRole(['super-admin', 'admin'])) {
+                return $query->where([
                     ['advisor_id', '=', Auth::id()]
-                ])
-                ->where([
-                    ['name', 'LIKE', '%'.$search.'%']
-                ])
-                ->get();
+                ]);
             }
-        } else {
-            $clubs = $this->findAllClubs();
-        }
+        })
+        ->where(function ($query) use ($search) {
+            if ($search != null) {
+                return $query->where([
+                    ['name', 'LIKE', '%'.$search.'%']
+                ]);
+            }
+        })
+        ->get();
 
         foreach ($clubs as $key => $value) {
             $init["id"] = $value->id;
@@ -48,15 +44,15 @@ class ClubRepository implements ClubRepositoryInterface
 
     public function findAllClubs()
     {
-        if (Auth::user()->hasAnyRole(['super-admin', 'admin'])) {
-            return Clubs::all();
-        } else {
-            return Clubs::query()
-            ->where([
-                ['advisor_id', '=', Auth::id()]
-            ])
-            ->get();
-        }
+        return Clubs::query()
+        ->where(function ($query) {
+            if (!Auth::user()->hasAnyRole(['super-admin', 'admin'])) {
+                return $query->where([
+                    ['advisor_id', '=', Auth::id()]
+                ]);
+            }
+        })
+        ->get();
     }
 
     public function findBySlug(string $slug)

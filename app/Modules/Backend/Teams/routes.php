@@ -17,10 +17,10 @@ Route::group(
             //     'uses' => 'TeamController@dataTable'
             // ]);
 
-            // Route::post('/loadOptions', [
-            //     'as' => 'teams.loadOptions',
-            //     'uses' => 'TeamController@loadOptions'
-            // ]);
+            Route::post('/loadRoleForMember', [
+                'as' => 'teams.loadRoleForMember',
+                'uses' => 'TeamController@loadRoleForMember'
+            ]);
         });
 
         Route::group(['prefix' => 'team'], function () {

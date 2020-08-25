@@ -35,6 +35,9 @@ class RolesAndPermissionsTableSeeder extends Seeder
         $admin = Role::create(['name' => 'admin']);
         $advisor = Role::create(['name' => 'advisor']);
         $president = Role::create(['name' => 'president']);
+        $vice_president = Role::create(['name' => 'vice-president']);
+        $human_resource = Role::create(['name' => 'human-resource']);
+        $member = Role::create(['name' => 'member']);
 
         $event_permission = Permission::query()->where([
             ['name', 'LIKE', 'event.%']
@@ -49,6 +52,6 @@ class RolesAndPermissionsTableSeeder extends Seeder
         $advisor->syncPermissions(Permission::all());
 
         $president->syncPermissions($event_permission);
-        // $president->syncPermissions($user_permission);
+        $president->syncPermissions($user_permission);
     }
 }

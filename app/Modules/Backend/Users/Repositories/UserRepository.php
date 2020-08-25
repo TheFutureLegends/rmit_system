@@ -3,7 +3,9 @@
 namespace App\Modules\Backend\Users\Repositories;
 
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
+use App\Jobs\SendVerifyEmailJob;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Modules\Backend\Clubs\Models\Clubs;
@@ -16,6 +18,8 @@ class UserRepository implements UserRepositoryInterface
     public function __construct(TeamRepositoryInterface $teamRepository)
     {
         $this->teamRepository = $teamRepository;
+
+        $this->user = null;
     }
 
     public function loadAdvisorOptions(string $search = null)
@@ -130,17 +134,73 @@ class UserRepository implements UserRepositoryInterface
             ])->pluck('president_id'))
             ->get();
 
+        } else {
+            if (Auth::user()->hasRole('president')) {
+                return Auth::user()->leader;
+            }
         }
     }
 
     public function findByEmail(string $email)
     {
-        return User::query()->where('email', $email)->firstOrFail();
+        return User::query()->where('email', $email)->first();
     }
 
     public function store(array $request)
     {
-        // $password = Str::random(10);
+        // $password = Str::random(10, 30);
+
+        $password = 'password';
+
+        $token = Str::random(60);
+
+        if (Auth::user()->hasAnyRole(['super-admin', 'admin', 'advisor'])) {
+            # code...
+            $this->user = User::create($this->format($token, $password, $request));
+
+            if (Auth::user()->hasRole('super-admin')) {
+
+                ($this->user)->assignRole('admin');
+
+            } else if (Auth::user()->hasRole('admin')) {
+
+                ($this->user)->assignRole('advisor');
+
+            } else {
+
+                ($this->user)->assignRole('president');
+
+                // Add created user as temporary to teams table
+                $this->teamRepository->store($user->toArray());
+
+            }
+        } else {
+            if (Auth::user()->hasRole('president')) {
+                # code...
+                switch ($request['role']) {
+                    case 'member':
+                        $this->teamRepository->store($request);
+
+                        break;
+                    default:
+                        $this->user = User::create($this->format($token, $password, $request));
+
+                        ($this->user)->assignRole($request['role']);
+
+                        $this->teamRepository->store(($this->user)->toArray());
+
+                        break;
+                }
+            } else {
+
+            }
+        }
+
+        // if ($this->user != null) {
+        //     $job = (new SendVerifyEmailJob($this->user, $password))->delay(Carbon::now()->addSeconds(15));
+
+        //     dispatch($job);
+        // }
 
         $password = 'password';
 
@@ -160,15 +220,21 @@ class UserRepository implements UserRepositoryInterface
 
             $user->assignRole('president');
 
+            // Add created user as temporary to teams table
             $this->teamRepository->store($user->toArray());
 
         } else {
+            // Club member that has permission to create new user
             $user->assignRole($request['role']);
         }
 
         $result['user'] = $user;
 
         $result['password'] = $password;
+
+        // $job = (new SendVerifyEmailJob($user, $password))->delay(Carbon::now()->addSeconds(15));
+
+        // dispatch($job);
 
         return $result;
     }
@@ -183,6 +249,30 @@ class UserRepository implements UserRepositoryInterface
             ['advisor_id', '=', $user->id]
         ])
         ->update(['advisor_id' => $request['transfer_advisor']]);
+
+        return true;
+    }
+
+    public function destroy(string $email)
+    {
+        $user = $this->findByEmail($email);
+
+        if ($user == null) {
+            if (Auth::user()->hasRole('president')) {
+                $user = Teams::query()
+                    ->where([
+                        ['leader_id', '=', Auth::id()]
+                    ])
+                    ->where([
+                        ['email', '=', $email]
+                    ])
+                    ->first();
+            } else {
+                # Other executives have permission to delete user
+            }
+        }
+
+        $user->delete();
 
         return true;
     }

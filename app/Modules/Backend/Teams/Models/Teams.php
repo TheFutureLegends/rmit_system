@@ -79,6 +79,13 @@ class Teams extends Model
         return $query->select(array_diff($this->getColumns(), (array) $value));
     }
 
+    public function scopeExcept_Type($query, $value = '')
+    {
+        return $query->where([
+            ['type', '!=', $value]
+        ]);
+    }
+
     /**
      * Get the user who is the president of team
      */

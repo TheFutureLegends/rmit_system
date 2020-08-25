@@ -106,6 +106,11 @@ class User extends Authenticatable implements HasMedia
         return format_string((Auth::user()->roles->pluck('name'))[0]);
     }
 
+    public function scopeExcept_Type($query, $value = '')
+    {
+        return $query->join('teams', 'teams.leader_id', '=', $value)->select('teams.member_id')->toArray();
+    }
+
     /**
      * Get the user who is the president of club
      */
@@ -115,18 +120,26 @@ class User extends Authenticatable implements HasMedia
     }
 
     /**
-     * Get the user who is the member.
-     */
-    public function member()
-    {
-        return $this->hasOne(Teams::class, 'member_id');
-    }
-
-    /**
      * Get the user who is the advisor of club
      */
     public function advisor()
     {
         return $this->hasMany(Clubs::class, 'advisor_id');
+    }
+
+    /**
+     * Get the user who is the leader.
+     */
+    public function leader()
+    {
+        return $this->hasMany(Teams::class, 'leader_id');
+    }
+
+    /**
+     * Get the user who is the member.
+     */
+    public function member()
+    {
+        return $this->hasOne(Teams::class, 'member_id');
     }
 }

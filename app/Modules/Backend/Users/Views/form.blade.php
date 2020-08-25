@@ -43,7 +43,7 @@
         @method("PUT")
     @endif
     <div class="row">
-        <div class="{{ (Auth::user()->hasAnyRole(['super-admin', 'admin', 'advisor'])) ? 'col-md-12' : 'col-md-8' }}">
+        <div class="{{ (Auth::user()->hasRole('president') ) ? 'col-md-8' : 'col-md-12' }}">
             <div class="main-card mb-3 card">
                 <div class="card-body">
                     <div class="form-row">
@@ -67,16 +67,13 @@
                 </div>
             </div>
         </div>
-        @if (!Auth::user()->hasAnyRole(['super-admin', 'admin', 'advisor']))
+        @if (Auth::user()->hasRole('president'))
         <div class="col-md-4">
             <div class="main-card-md-3 card ">
                 <div class="card-body mb-2">
                     <div class="position-relative form-group">
                         <label for="role" class="">Role</label>
                         <select name="role" id="role" class="form-control role">
-                            <option disabled selected="selected">Choose role</option>
-                            <option value="advisor">Advisor</option>
-                            <option value="president">President</option>
                         </select>
                     </div>
                 </div>

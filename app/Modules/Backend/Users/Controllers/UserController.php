@@ -7,12 +7,12 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Jobs\SendVerifyEmailJob;
 use Yajra\DataTables\DataTables;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Modules\Backend\Clubs\Models\Clubs;
-use App\Modules\Backend\Teams\Models\Teams;
 use App\Modules\Backend\Users\Repositories\UserRepositoryInterface;
 
 class UserController extends Controller
@@ -40,14 +40,16 @@ class UserController extends Controller
         $users = $this->userRepository->findUserByRole();
 
         foreach ($users as $user) {
-            $roles = $user->getRoleNames()->toArray();
+            if ($user instanceof User) {
+                $roles = $user->getRoleNames()->toArray();
 
-            foreach ($roles as $key => $role) {
-                do {
-                    $badge = ($this->badges)[array_rand($this->badges)];
-                } while (in_array($badge, $init));
+                foreach ($roles as $key => $role) {
+                    do {
+                        $badge = ($this->badges)[array_rand($this->badges)];
+                    } while (in_array($badge, $init));
 
-                $init[$role] = $badge;
+                    $init[$role] = $badge;
+                }
             }
         }
 
@@ -55,9 +57,12 @@ class UserController extends Controller
         ->addColumn('name', function ($user) {
             $badge = '';
 
-            if (empty($user->president)) {
-                $badge .= '&nbsp;<span class="mb-2 mr-2 badge badge-pill badge-danger">Not assigned</span>';
+            if (Auth::user()->hasAnyRole(['advisor'])) {
+                if (empty($user->president)) {
+                    $badge .= '&nbsp;<span class="mb-2 mr-2 badge badge-pill badge-danger">Not assigned</span>';
+                }
             }
+
             return $user->name . $badge;
         })
         ->addColumn('email', function ($user) {
@@ -66,12 +71,16 @@ class UserController extends Controller
         ->addColumn('access', function ($user) use ($init) {
             $result = '';
 
-            $roles = $user->getRoleNames()->toArray();
+            if ($user instanceof User) {
+                $roles = $user->getRoleNames()->toArray();
 
-            foreach ($roles as $key => $role) {
-                if (array_key_exists($role, $init)) {
-                    $result .= '<div class="mb-2 mr-2 badge badge-pill badge-'.$init[$role].'">'.format_string($role).'</div>';
+                foreach ($roles as $key => $role) {
+                    if (array_key_exists($role, $init)) {
+                        $result .= '<div class="mb-2 mr-2 badge badge-pill badge-'.$init[$role].'">'.format_string($role).'</div>';
+                    }
                 }
+            } else {
+                $result .= '<div class="mb-2 mr-2 badge badge-pill badge-success">Member</div>';
             }
 
             return $result;
@@ -219,9 +228,11 @@ class UserController extends Controller
      */
     public function destroy($email)
     {
-        $this->user = $this->userRepository->findByEmail($email);
+        // $this->user = $this->userRepository->findByEmail($email);
 
-        ($this->user)->delete();
+        // ($this->user)->delete();
+
+        $this->userRepository->destroy($email);
 
         return response()->json(['message' => 'Update successfully!', 'status' => 200]);
     }

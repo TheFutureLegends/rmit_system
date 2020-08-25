@@ -17,4 +17,6 @@ interface UserRepositoryInterface
     public function store(array $request);
 
     public function update(string $email, array $request);
+
+    public function destroy(string $email);
 }

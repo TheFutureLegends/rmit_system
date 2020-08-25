@@ -815,6 +815,30 @@ $(document).ready(function() {
         });
     }
 
+    if (utility.isExists("#role")) {
+        $(".role").select2({
+            placeholder: "Select role for member",
+            width: "100%",
+            ajax: {
+                url: "/dashboard/teams/loadRoleForMember",
+                method: "POST",
+                dataType: "JSON",
+                data: params => {
+                    var query = {
+                        search: params.term
+                    };
+
+                    return query;
+                },
+                processResults: data => {
+                    return {
+                        results: data
+                    };
+                }
+            }
+        });
+    }
+
     if (utility.isExists("#roles")) {
         $(".roles").select2({
             placeholder: "Select roles",
