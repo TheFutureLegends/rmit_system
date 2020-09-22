@@ -266,7 +266,7 @@
                                 onblur="this.placeholder = 'Full Name'" required class="single-input">
                         </div>
 
-                        <div class="col-md-7 col-sm-12 mt-3 mt-md-0">
+                        <div class="col-md-7 col-sm-12 mt-2 mt-md-0">
                             <input type="email" name="email" placeholder="Email address" onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Email address'" required class="single-input">
                         </div>
