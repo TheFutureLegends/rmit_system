@@ -277,7 +277,7 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col-md-5">
-                            <div class="g-recaptcha" data-sitekey="6LfWNc8ZAAAAAAcztCURnCugJK9a0hQ8MqxWaozo"></div>
+                            <div class="g-recaptcha" data-sitekey="{{ env("RECAPTCHA_KEY") }}"></div>
                         </div>
 
                         <div class="col-lg-7 col-md-12">
