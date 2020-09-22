@@ -267,7 +267,7 @@
                             onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required></textarea>
                     </div>
                     <div class="row mt-4">
-                        <div class="switch-wrap d-flex justify-content-between col-md-5">
+                        <div class="col-md-5">
                             <div class="g-recaptcha" data-sitekey="6LfWNc8ZAAAAAAcztCURnCugJK9a0hQ8MqxWaozo"></div>
                         </div>
 
