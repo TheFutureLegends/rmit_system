@@ -173,7 +173,7 @@
             </div>
         </div>
         <div class="row justify-content-center d-flex align-items-center">
-            <div class="col-lg-6 team-left">
+            <div class="col-lg-6">
                 <p>
                     inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct
                     standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on
@@ -185,8 +185,8 @@
                     standards especially in the workplace. That’s why it’s crucial that, as women.
                 </p>
             </div>
-            <div class="col-lg-6 team-right d-flex justify-content-center">
-                <div class="row ">
+            <div class="col-lg-6 d-flex justify-content-center">
+                <div class="row justify-content-center">
                     <div class="single-team">
                         <div class="thumb">
                             <img class="img-fluid" src="img/team1.jpg" alt="">
