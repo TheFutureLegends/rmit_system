@@ -32,7 +32,7 @@
                                 </div>
 
                                 <div class="col-lg-4 col-md-12">
-                                    <button class="nw-btn primary-btn">Subscribe<span
+                                    <button class="nw-btn primary-btn subscribe-btn">Subscribe<span
                                             class="lnr lnr-arrow-right"></span></button>
                                 </div>
                             </div>
