@@ -1,7 +1,7 @@
 <header class="default-header">
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{ route("home.index") }}">
                 <img src="img/logo.png" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -11,7 +11,7 @@
 
             <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    <li {!! set_full_request_class(['/'], 'class="active"') !!}><a href="#home">Home</a></li>
+                    <li {!! set_full_request_class(['/'], 'class="active"') !!}><a href="{{ route("home.index") }}">Home</a></li>
                     <li {!! set_full_request_class(['events', 'event/*'], 'class="active"') !!}><a href="{{ route('events.frontend.index') }}">Events</a></li>
                     <!-- Dropdown -->
                     @guest
