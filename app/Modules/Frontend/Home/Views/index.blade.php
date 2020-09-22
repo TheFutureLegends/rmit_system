@@ -15,9 +15,17 @@
                     </small>
                 </h1>
             </div>
-            <div class="head-bottom-meta d-flex justify-content-between align-items-end col-lg-12">
 
+            <div class="head-bottom-meta d-flex justify-content-between align-items-end col-lg-12"></div>
+
+            <div class="box" style="color:white">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
+        </div>
+        <div class="row">
+
         </div>
     </div>
 </section>
