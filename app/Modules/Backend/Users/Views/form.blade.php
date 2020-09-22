@@ -73,8 +73,7 @@
                 <div class="card-body mb-2">
                     <div class="position-relative form-group">
                         <label for="role" class="">Role</label>
-                        <select name="role" id="role" class="form-control role">
-                        </select>
+                        <select name="role" id="role" class="form-control role"></select>
                     </div>
                 </div>
             </div>

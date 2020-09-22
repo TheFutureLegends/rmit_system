@@ -849,10 +849,21 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
+/***/ "./resources/sass/backend/index.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/backend/index.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/frontend/main.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/frontend/main.scss ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -861,14 +872,15 @@ $(document).ready(function () {
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!***********************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/frontend/main.scss ./resources/sass/backend/index.scss ***!
+  \***********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/leon/Dev/laravel/event/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/leon/Dev/laravel/event/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/leon/Dev/laravel/event/resources/sass/frontend/main.scss */"./resources/sass/frontend/main.scss");
+module.exports = __webpack_require__(/*! /Users/leon/Dev/laravel/event/resources/sass/backend/index.scss */"./resources/sass/backend/index.scss");
 
 
 /***/ })

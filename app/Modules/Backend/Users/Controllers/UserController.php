@@ -1,13 +1,9 @@
 <?php
-
 namespace App\Modules\Backend\Users\Controllers;
 
 use App\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Jobs\SendVerifyEmailJob;
 use Yajra\DataTables\DataTables;
-use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -182,11 +178,7 @@ class UserController extends Controller
             'email' => 'required|email|min:5|max:255|unique:users'
         ]);
 
-        $user = $this->userRepository->store($request->all());
-
-        // $job = (new SendVerifyEmailJob($user['user'], $user['password']))->delay(Carbon::now()->addSeconds(15));
-
-        // dispatch($job);
+        $this->userRepository->store($request->all());
 
         return redirect()->route('users.index');
     }

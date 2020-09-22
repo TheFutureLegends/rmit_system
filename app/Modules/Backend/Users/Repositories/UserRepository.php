@@ -171,7 +171,7 @@ class UserRepository implements UserRepositoryInterface
                 ($this->user)->assignRole('president');
 
                 // Add created user as temporary to teams table
-                $this->teamRepository->store($user->toArray());
+                $this->teamRepository->store(($this->user)->toArray());
 
             }
         } else {
@@ -202,41 +202,41 @@ class UserRepository implements UserRepositoryInterface
         //     dispatch($job);
         // }
 
-        $password = 'password';
+        // $password = 'password';
 
-        $token = Str::random(60);
+        // $token = Str::random(60);
 
-        $user = User::create($this->format($token, $password, $request));
+        // $user = User::create($this->format($token, $password, $request));
 
-        if (Auth::user()->hasRole('super-admin')) {
+        // if (Auth::user()->hasRole('super-admin')) {
 
-            $user->assignRole('admin');
+        //     $user->assignRole('admin');
 
-        } else if (Auth::user()->hasRole('admin')) {
+        // } else if (Auth::user()->hasRole('admin')) {
 
-            $user->assignRole('advisor');
+        //     $user->assignRole('advisor');
 
-        } else if (Auth::user()->hasRole('advisor')) {
+        // } else if (Auth::user()->hasRole('advisor')) {
 
-            $user->assignRole('president');
+        //     $user->assignRole('president');
 
-            // Add created user as temporary to teams table
-            $this->teamRepository->store($user->toArray());
+        //     // Add created user as temporary to teams table
+        //     $this->teamRepository->store($user->toArray());
 
-        } else {
-            // Club member that has permission to create new user
-            $user->assignRole($request['role']);
-        }
+        // } else {
+        //     // Club member that has permission to create new user
+        //     $user->assignRole($request['role']);
+        // }
 
-        $result['user'] = $user;
+        // $result['user'] = $user;
 
-        $result['password'] = $password;
+        // $result['password'] = $password;
 
         // $job = (new SendVerifyEmailJob($user, $password))->delay(Carbon::now()->addSeconds(15));
 
         // dispatch($job);
 
-        return $result;
+        return true;
     }
 
     // Transfer club advisor

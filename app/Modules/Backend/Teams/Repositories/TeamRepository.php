@@ -60,13 +60,7 @@ class TeamRepository implements TeamRepositoryInterface
                 $result['type'] = $roles[0]['name'];
             }
         } else {
-            if (Auth::user()->hasRole('president')) {
-                $result['type'] = $request['type'];
-            }
-
-            if (isset($request['major'])) {
-                $result['major'] = $request['major'];
-            }
+            $result['leader_id'] = Auth::user()->member->leader_id;
         }
 
         if (isset($request['name'])) {
