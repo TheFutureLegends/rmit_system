@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.frontend.master');
-})->name('welcome');
-
 Route::get('/verify/{email}/{token}', function ($email, $token) {
     $user = User::query()
     ->where([

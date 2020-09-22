@@ -1956,13 +1956,16 @@ i {
 .single-gallery:hover,
 .single-fashion h4:hover,
 .single-travel h4:hover {
-    background-image: -ms-linear-gradient(45deg, #62bdfc 0%, #8490ff 100%);
+    /* background-image: -ms-linear-gradient(45deg, #62bdfc 0%, #8490ff 100%); */
+    background: rgb(0, 212, 255);
+    background: linear-gradient(45deg, #62bdfc 0%, #8490ff 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: #69b4fd;
+    -webkit-text-fill-color: transparent;
 }
 
 .subscribe-btn {
-    background-color: rgb(209, 97, 97) !important
+    background: rgb(0, 212, 255);
+    background: linear-gradient(45deg, #62bdfc 0%, #8490ff 100%);
 }
 
 .primary-btn {
@@ -2022,15 +2025,16 @@ i {
 }
 
 .load-more {
-    background: transparent;
-    border: 1px solid #69b4fd;
-    color: #69b4fd;
+    /* border: 1px solid transparent; */
+    background: rgb(0, 212, 255);
+    background: linear-gradient(45deg, #62bdfc 0%, #8490ff 100%);
+    border: 1px solid transparent;
 }
 
 .load-more:hover {
-    background: #69b4fd;
+    background: transparent;
     border: 1px solid #69b4fd;
-    color: black;
+    color: #69b4fd;
 }
 
 .pbtn-2 {
@@ -2403,9 +2407,12 @@ i {
         margin-bottom: 30px;
     }
 }
+.contact-area {
+    background-color: #f9f9ff;
+}
 
 .team-area {
-    background-color: #f9f9ff;
+    background-color: #fff;
 }
 
 .team-area .single-team {
