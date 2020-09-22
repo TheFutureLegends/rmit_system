@@ -1938,7 +1938,6 @@ i {
 }
 
 .p1-gradient-bg,
-.top-section-area,
 .tag_widget ul li a:hover,
 .about_widget button:hover,
 .overlay,
@@ -1948,6 +1947,11 @@ i {
 .footer-social a:hover,
 .primary-btn {
     background-image: -ms-linear-gradient(45deg, #62bdfc 0%, #8490ff 100%);
+}
+
+.top-section-area {
+    background: rgb(0, 212, 255);
+    background: linear-gradient(45deg, #62bdfc 0%, #8490ff 100%);
 }
 
 .p1-gradient-color,
@@ -2554,6 +2558,12 @@ i {
 .footer-area {
     padding-top: 100px;
     background-color: #222222;
+}
+
+@media (max-width: 420px) {
+    .footer-area {
+        padding-top: 50px;
+    }
 }
 
 .footer-area .footer-nav li {

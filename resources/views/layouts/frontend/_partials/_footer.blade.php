@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4 col-md-12">
+                                <div class="col-lg-4 col-md-12 mt-md-2 mt-lg-0">
                                     <button class="nw-btn primary-btn subscribe-btn">Subscribe<span
                                             class="lnr lnr-arrow-right"></span></button>
                                 </div>

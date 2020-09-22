@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li {!! set_full_request_class(['/'], 'class="active"') !!}><a href="#home">Home</a></li>
-                    <li {!! set_full_request_class(['/events', '/event/*'], 'class="active"') !!}><a href="#events">Events</a></li>
+                    <li {!! set_full_request_class(['events', 'event/*'], 'class="active"') !!}><a href="{{ route('events.frontend.index') }}">Events</a></li>
                     <!-- Dropdown -->
                     @guest
                     <li><a href="{{ route('login') }}">Login</a></li>
