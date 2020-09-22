@@ -4,7 +4,4 @@
 <script src="https://kit.fontawesome.com/38516ab9ae.js" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-{{-- <link rel="stylesheet" href="css/font-awesome.min.css"> --}}
-{{-- <link rel="stylesheet" href="{{ asset('css/frontend/bootstrap.css') }}"> --}}
-{{-- <link rel="stylesheet" href="{{ asset('css/frontend/owl.carousel.css') }}"> --}}
 <link rel="stylesheet" href="{{ asset('css/frontend.css') }}">

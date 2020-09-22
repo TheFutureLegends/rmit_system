@@ -12,20 +12,29 @@
             <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#news">News</a></li>
-                    <li><a href="#travel">Travel</a></li>
-                    <li><a href="#fashion">fashion</a></li>
-                    <li><a href="#team">team</a></li>
+                    <li><a href="#events">Events</a></li>
                     <!-- Dropdown -->
+                    @guest
+                    <li><a href="{{ route('login') }}">Login</a></li>
+                    @else
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            Username
+                            {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="single.html">Dashboard</a>
-                            <a class="dropdown-item" href="category.html">Logout</a>
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                <i class="metismenu-icon pe-7s-power"></i>&nbsp;{{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </div>
                     </li>
+                    @endguest
                 </ul>
             </div>
         </div>

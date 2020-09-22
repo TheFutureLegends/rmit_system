@@ -25,7 +25,7 @@
 
 
 <!-- Start category Area -->
-<section class="category-area section-gap" id="news">
+<section class="travel-area section-gap" id="news">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-70 col-lg-8">
@@ -68,7 +68,7 @@
 <!-- End category Area -->
 
 <!-- Start travel Area -->
-<section class="travel-area section-gap" id="travel">
+<section class="category-area section-gap" id="events">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-70 col-lg-8">
@@ -152,13 +152,13 @@
 </section>
 <!-- End travel Area -->
 
-<!-- Start Team Area -->
-<section class="team-area section-gap" id="team">
+<!-- Start team Area -->
+<section class="team-area section-gap">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-70 col-lg-8">
                 <div class="title text-center">
-                    <h1 class="mb-10">About RMIT Student Activities</h1>
+                    <h1 class="mb-10">About Blogger Team</h1>
                     <p>Who are in extremely love with eco friendly system.</p>
                 </div>
             </div>
@@ -211,10 +211,10 @@
         </div>
     </div>
 </section>
-<!-- End fashion Area -->
+<!-- End team Area -->
 
 <!-- Start Contact Area -->
-<section class="team-area section-gap" id="team">
+<section class="category-area section-gap">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-70 col-lg-8">
@@ -267,13 +267,13 @@
                             onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required></textarea>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-md-5 col-sm-12">
+                        <div class="col-md-5">
                             <div class="g-recaptcha" data-sitekey="6LfWNc8ZAAAAAAcztCURnCugJK9a0hQ8MqxWaozo"></div>
                         </div>
 
                         <div class="col-lg-7 col-md-12">
-                            <button type="submit" class="primary-btn subscribe-btn mt-3 float-lg-right">Send Message<span
-                                            class="lnr lnr-arrow-right"></span></button>
+                            <button type="submit" class="primary-btn subscribe-btn mt-3 float-lg-right">Send
+                                Message<span class="lnr lnr-arrow-right"></span></button>
                         </div>
                     </div>
                 </form>

@@ -16,7 +16,6 @@
 {{-- <script src="js/vendor/bootstrap.min.js"></script> --}}
 <script src="{{ asset('js/frontend/jquery.ajaxchimp.min.js') }}"></script>
 <script src="{{ asset('js/frontend/parallax.min.js') }}"></script>
-<script src="{{ asset('js/frontend/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/frontend/jquery.magnific-popup.min.js') }}"></script>
 <script src="{{ asset('js/frontend/jquery.sticky.js') }}"></script>
 <script src="{{ asset('js/frontend/main.js') }}"></script>

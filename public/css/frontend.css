@@ -2407,12 +2407,9 @@ i {
         margin-bottom: 30px;
     }
 }
-.contact-area {
-    background-color: #f9f9ff;
-}
 
 .team-area {
-    background-color: #fff;
+    background: #f9f9ff;
 }
 
 .team-area .single-team {
