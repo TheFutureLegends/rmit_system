@@ -267,12 +267,12 @@
                             onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required></textarea>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-md-5">
+                        <div class="col-md-5 col-sm-12">
                             <div class="g-recaptcha" data-sitekey="6LfWNc8ZAAAAAAcztCURnCugJK9a0hQ8MqxWaozo"></div>
                         </div>
 
-                        <div class="col-md-7 float-md-right">
-                            <button class="nw-btn primary-btn subscribe-btn">Send Message<span
+                        <div class="col-lg-7 col-md-12">
+                            <button type="submit" class="primary-btn subscribe-btn mt-3 float-lg-right">Send Message<span
                                             class="lnr lnr-arrow-right"></span></button>
                         </div>
                     </div>
