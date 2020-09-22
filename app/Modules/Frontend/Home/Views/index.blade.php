@@ -22,7 +22,7 @@
 
             <div class="head-bottom-meta d-flex justify-content-between align-items-end col-lg-12"></div>
 
-            <div class="scroll-indicator-animator d-sm-none d-md-block">
+            <div class="scroll-indicator-animator d-none d-md-block d-lg-none">
                 <span></span>
                 <span></span>
                 <span></span>
