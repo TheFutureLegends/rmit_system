@@ -3488,25 +3488,40 @@ blockquote cite:before {
     }
 }
 
-.active {
-    height: 27px;
-}
-
-@media(max-width: 1152px) {
+@media (min-width: 1152px) {
     .active {
-        height: 26px;
+        height: 27px;
+    }
+
+    .active a {
+        /* text-decoration: underline solid #69b4fd;
+    text-underline-position: under; */
+        background: rgb(0, 212, 255);
+        background: linear-gradient(45deg, #62bdfc 0%, #8490ff 100%);
+        /* text-decoration-thickness: 0.2em; */
+        /* border-bottom: 2px solid #69b4fd; */
+    }
+
+    .active a:hover {
+        color: white;
     }
 }
 
-.active a {
-    /* text-decoration: underline solid #69b4fd;
-    text-underline-position: under; */
-    background: rgb(0, 212, 255);
-    background: linear-gradient(45deg, #62bdfc 0%, #8490ff 100%);
-    /* text-decoration-thickness: 0.2em; */
-    /* border-bottom: 2px solid #69b4fd; */
-}
+@media (min-width: 415px) {
+    .active {
+        height: 26px;
+    }
 
-.active a:hover {
-    color: white;
+    .active a {
+        /* text-decoration: underline solid #69b4fd;
+    text-underline-position: under; */
+        background: rgb(0, 212, 255);
+        background: linear-gradient(45deg, #62bdfc 0%, #8490ff 100%);
+        /* text-decoration-thickness: 0.2em; */
+        /* border-bottom: 2px solid #69b4fd; */
+    }
+
+    .active a:hover {
+        color: white;
+    }
 }
