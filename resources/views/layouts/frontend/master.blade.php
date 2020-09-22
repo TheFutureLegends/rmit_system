@@ -15,7 +15,8 @@
 	    <!-- meta character set -->
 	    <meta charset="UTF-8">
 	    <!-- Site Title -->
-	    <title>Blogger</title>
+        <title>Blogger</title>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 	    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 	    <!-- CSS  -->

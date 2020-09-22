@@ -229,27 +229,52 @@
                 <h4>
                     <i class="fas fa-building"></i>&nbsp;Our Office
                 </h4>
+                <p class="mt-3 mb-3">
+                    RMIT University - 702 Nguyen Van Linh, Tan Hung Ward, District 7, Ho Chi Minh City
+                </p>
+                <h4>
+                    <i class="fas fa-phone-alt"></i>&nbsp;Contact Phone
+                </h4>
+
+                <p class="mt-3 mb-3">
+                    028 3776 1300
+                </p>
 
                 <h4>
-                    <i class="fas fa-building"></i>&nbsp;Contact Phone
+                    <i class="fas fa-clock"></i>&nbsp;Working hours
                 </h4>
+
+                <p class="mt-3 mb-3">
+                    Mon - Sat
+                    <br /> 8 A.M : 5 P.M
+                </p>
             </div>
             <div class="col-lg-7 col-md-7 team-right">
                 <form action="#" method="POST">
                     <div class="row mt-10">
                         <div class="col-md-5">
                             <input type="text" name="full_name" placeholder="Full Name" onfocus="this.placeholder = ''"
-                            onblur="this.placeholder = 'Full Name'" required class="single-input">
+                                onblur="this.placeholder = 'Full Name'" required class="single-input">
                         </div>
 
                         <div class="col-md-7">
                             <input type="email" name="email" placeholder="Email address" onfocus="this.placeholder = ''"
-                            onblur="this.placeholder = 'Email address'" required class="single-input">
+                                onblur="this.placeholder = 'Email address'" required class="single-input">
                         </div>
                     </div>
                     <div class="mt-10">
-                        <textarea class="single-textarea" name="message" placeholder="Message" rows="250" onfocus="this.placeholder = ''"
-                            onblur="this.placeholder = 'Message'" required></textarea>
+                        <textarea class="single-textarea" name="message" placeholder="Message" rows="250"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required></textarea>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="switch-wrap d-flex justify-content-between col-md-5">
+                            <div class="g-recaptcha" data-sitekey="6LfWNc8ZAAAAAAcztCURnCugJK9a0hQ8MqxWaozo"></div>
+                        </div>
+
+                        <div class="col-md-7 float-md-right">
+                            <button class="nw-btn primary-btn subscribe-btn">Send Message<span
+                                            class="lnr lnr-arrow-right"></span></button>
+                        </div>
                     </div>
                 </form>
             </div>
