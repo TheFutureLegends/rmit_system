@@ -225,20 +225,16 @@
             </div>
         </div>
         <div class="row justify-content-center d-flex align-items-center">
-            <div class="col-lg-4 team-left">
-                <p>
-                    inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct
-                    standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on
-                    the job is beyond reproach. inappropriate behavior is often laughed off as “boys will be boys,”
-                    women face higher conduct standards especially in the workplace. That’s why it’s crucial that.
-                </p>
-                <p>
-                    inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct
-                    standards especially in the workplace. That’s why it’s crucial that, as women.
-                </p>
+            <div class="col-lg-5 col-md-5 team-left">
+                <h4>
+                    <i class="fas fa-building"></i>&nbsp;Our Office
+                </h4>
+
+                <h4>
+                    <i class="fas fa-building"></i>&nbsp;Contact Phone
+                </h4>
             </div>
-            <div class="col-lg-8 col-md-8">
-                <h3 class="mb-30">Form Element</h3>
+            <div class="col-lg-7 col-md-7 team-right">
                 <form action="#" method="POST">
                     <div class="row mt-10">
                         <div class="col-md-5">
