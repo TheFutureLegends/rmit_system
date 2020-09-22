@@ -1,5 +1,9 @@
 @extends('layouts.frontend.master')
 
+@section('title')
+    Home Page
+@endsection
+
 @section('content')
 <!-- start banner Area -->
 <section class="banner-area relative" id="home" data-parallax="scroll" data-image-src="https://i.imgur.com/7KUGKka.jpg">
@@ -18,14 +22,11 @@
 
             <div class="head-bottom-meta d-flex justify-content-between align-items-end col-lg-12"></div>
 
-            <div class="box" style="color:white">
+            <div class="scroll-indicator-animator">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-        </div>
-        <div class="row">
-
         </div>
     </div>
 </section>
@@ -185,7 +186,7 @@
                 </p>
             </div>
             <div class="col-lg-6 team-right d-flex justify-content-center">
-                <div class="row active-team-carusel">
+                <div class="row ">
                     <div class="single-team">
                         <div class="thumb">
                             <img class="img-fluid" src="img/team1.jpg" alt="">
