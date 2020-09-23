@@ -3374,6 +3374,14 @@ blockquote cite:before {
     }
 }
 
+@media(max-width: 420px) {
+    .commentform-area {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        padding-top: 80px;
+    }
+}
+
 .commentform-area .form-control {
     border-radius: 0;
     font-size: 14px;
