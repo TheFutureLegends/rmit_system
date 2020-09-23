@@ -1,7 +1,7 @@
 @extends('layouts.frontend.master')
 
 @section('title')
-Events Page
+Latest Events
 @endsection
 
 @section('content')
