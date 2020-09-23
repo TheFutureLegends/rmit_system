@@ -19,7 +19,6 @@ Events Page
 
 <!-- Start post Area -->
 <div class="post-wrapper pt-100">
-    <!-- Start post Area -->
     <section class="post-area">
         <div class="container">
             <div class="row justify-content-center">
@@ -37,7 +36,7 @@ Events Page
                                         <h3>12 Dec ,2017 11:21 am</h3>
                                     </div>
                                     <div class="user-img">
-                                        <img src="img/user.jpg" alt="">
+                                        <img src="{{ asset('img/user.jpg') }}" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +146,7 @@ Events Page
                                         <div class="single-comment justify-content-between d-flex">
                                             <div class="user justify-content-between d-flex">
                                                 <div class="thumb">
-                                                    <img src="img/asset/c1.jpg" alt="">
+                                                    <img src="{{ asset('img/asset/c1.jpg') }}" alt="">
                                                 </div>
                                                 <div class="desc">
                                                     <h5><a href="#">Emilly Blunt</a></h5>
@@ -166,7 +165,7 @@ Events Page
                                         <div class="single-comment justify-content-between d-flex">
                                             <div class="user justify-content-between d-flex">
                                                 <div class="thumb">
-                                                    <img src="img/asset/c2.jpg" alt="">
+                                                    <img src="{{ asset('img/asset/c2.jpg') }}" alt="">
                                                 </div>
                                                 <div class="desc">
                                                     <h5><a href="#">Emilly Blunt</a></h5>
@@ -185,7 +184,7 @@ Events Page
                                         <div class="single-comment justify-content-between d-flex">
                                             <div class="user justify-content-between d-flex">
                                                 <div class="thumb">
-                                                    <img src="img/asset/c3.jpg" alt="">
+                                                    <img src="{{ asset('img/asset/c3.jpg') }}" alt="">
                                                 </div>
                                                 <div class="desc">
                                                     <h5><a href="#">Emilly Blunt</a></h5>
@@ -204,7 +203,7 @@ Events Page
                                         <div class="single-comment justify-content-between d-flex">
                                             <div class="user justify-content-between d-flex">
                                                 <div class="thumb">
-                                                    <img src="img/asset/c4.jpg" alt="">
+                                                    <img src="{{ asset('img/asset/c4.jpg') }}" alt="">
                                                 </div>
                                                 <div class="desc">
                                                     <h5><a href="#">Emilly Blunt</a></h5>
@@ -223,7 +222,7 @@ Events Page
                                         <div class="single-comment justify-content-between d-flex">
                                             <div class="user justify-content-between d-flex">
                                                 <div class="thumb">
-                                                    <img src="img/asset/c5.jpg" alt="">
+                                                    <img src="{{ asset('img/asset/c5.jpg') }}" alt="">
                                                 </div>
                                                 <div class="desc">
                                                     <h5><a href="#">Emilly Blunt</a></h5>
@@ -261,7 +260,6 @@ Events Page
                                             <input name="Subject" placeholder="Subject" onfocus="this.placeholder = ''"
                                                 onblur="this.placeholder = 'Enter your Subject'"
                                                 class="common-input mb-20 form-control" required="" type="text">
-                                            {{-- <div class="g-recaptcha" data-sitekey="{{ env("RECAPTCHA_KEY") }}"></div> --}}
                                         </div>
 
                                         <div class="col-lg-6">
@@ -271,7 +269,7 @@ Events Page
                                         </div>
                                     </div>
                                     <div class="row d-flex flext-row">
-                                        <div class="col-lg-5 col-md-12 mt-sm-3 float-lg-left">
+                                        <div class="col-lg-5 col-md-12 col-sm-12 mt-3 mt-md-0 float-lg-left">
                                             <div class="g-recaptcha" data-sitekey="{{ env("RECAPTCHA_KEY") }}"></div>
                                         </div>
 
@@ -281,35 +279,11 @@ Events Page
                                         </div>
                                     </div>
                                 </form>
-
-                                {{-- <div class="row flex-row d-flex">
-                                    <div class="col-lg-6">
-                                        <input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = 'Enter your name'"
-                                            class="common-input mb-20 form-control" required="" type="text">
-                                        <input name="email" placeholder="Enter your email"
-                                            onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = 'Enter your email'"
-                                            class="common-input mb-20 form-control" required="" type="email">
-                                        <input name="Subject" placeholder="Subject" onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = 'Enter your Subject'"
-                                            class="common-input mb-20 form-control" required="" type="text">
-
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <textarea class="form-control mb-10" name="message" placeholder="Messege"
-                                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'"
-                                            required=""></textarea>
-                                        <a class="primary-btn mt-20" href="#">Comment</a>
-                                    </div>
-                                </div> --}}
-                            </div>
                         </section>
-                        <!-- End commentform Area -->
-
                     </div>
                 </div>
-                <div class="col-lg-4 sidebar-area ">
+
+                <div class="col-lg-4 sidebar-area">
                     <div class="single_widget search_widget">
                         <div id="imaginary_container">
                             <div class="input-group stylish-input-group">
@@ -337,8 +311,9 @@ Events Page
                                     follow</button></a>
                         </div>
                     </div>
+
                     <div class="single_widget cat_widget">
-                        <h4 class="text-uppercase pb-20">post categories</h4>
+                        <h4 class="text-uppercase pb-20">event categories</h4>
                         <ul>
                             <li>
                                 <a href="#">Technology <span>37</span></a>
@@ -365,58 +340,33 @@ Events Page
                     </div>
 
                     <div class="single_widget recent_widget">
-                        <h4 class="text-uppercase pb-20">Recent Posts</h4>
+                        <h4 class="text-uppercase pb-20">Recent Events</h4>
                         <div class="active-recent-carusel">
                             <div class="item">
-                                <img src="img/asset/slider.jpg" alt="">
+                                <img src="{{ asset('img/asset/slider.jpg') }}" alt="">
+                                <a href="{{ route('events.frontend.show', 'abc-def') }}">
+                                    <p class="mt-20 title text-uppercase">Home Audio Recording <br>
+                                        For Everyone</p>
+                                </a>
+
+                                <p>02 Hours ago <span> <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                        06 <i class="fa fa-comment-o" aria-hidden="true"></i>02</span></p>
+                            </div>
+                            <div class="item">
+                                <img src="{{ asset('img/asset/slider.jpg') }}" alt="">
                                 <p class="mt-20 title text-uppercase">Home Audio Recording <br>
                                     For Everyone</p>
                                 <p>02 Hours ago <span> <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         06 <i class="fa fa-comment-o" aria-hidden="true"></i>02</span></p>
                             </div>
                             <div class="item">
-                                <img src="img/asset/slider.jpg" alt="">
-                                <p class="mt-20 title text-uppercase">Home Audio Recording <br>
-                                    For Everyone</p>
-                                <p>02 Hours ago <span> <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        06 <i class="fa fa-comment-o" aria-hidden="true"></i>02</span></p>
-                            </div>
-                            <div class="item">
-                                <img src="img/asset/slider.jpg" alt="">
+                                <img src="{{ asset('img/asset/slider.jpg') }}" alt="">
                                 <p class="mt-20 title text-uppercase">Home Audio Recording <br>
                                     For Everyone</p>
                                 <p>02 Hours ago <span> <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         06 <i class="fa fa-comment-o" aria-hidden="true"></i>02</span></p>
                             </div>
                         </div>
-                    </div>
-
-
-                    <div class="single_widget cat_widget">
-                        <h4 class="text-uppercase pb-20">post archive</h4>
-                        <ul>
-                            <li>
-                                <a href="#">Dec'17 <span>37</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Nov'17 <span>37</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Oct'17 <span>37</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Sept'17 <span>37</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Aug'17 <span>37</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Jul'17 <span>37</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Jun'17 <span>37</span></a>
-                            </li>
-                        </ul>
                     </div>
                     <div class="single_widget tag_widget">
                         <h4 class="text-uppercase pb-20">Tag Clouds</h4>
@@ -436,7 +386,5 @@ Events Page
             </div>
         </div>
     </section>
-    <!-- End post Area -->
 </div>
-<!-- End post Area -->
 @endsection
