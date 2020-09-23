@@ -2852,11 +2852,24 @@ h6 {
 
 .top-wrapper .right-side .desc {
     margin-right: 20px;
+    line-height: 5px;
     text-align: right;
 }
 
 .top-wrapper .right-side .desc h2 {
+    padding-bottom: 7px;
     text-align: right;
+}
+
+@media (max-width: 415px) {
+    .top-wrapper .right-side .desc {
+        margin-left: 20px;
+        text-align: left;
+    }
+
+    .top-wrapper .right-side .desc h2 {
+        text-align: left;
+    }
 }
 
 .tags ul {

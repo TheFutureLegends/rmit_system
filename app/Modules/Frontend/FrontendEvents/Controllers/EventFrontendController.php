@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Frontend\Events\Controllers;
+namespace App\Modules\Frontend\FrontendEvents\Controllers;
 
 use Illuminate\Support\Facades\DB;
 // use App\Modules\Dashboard\Home\Repositories\DashboardRepositoryInterface;
@@ -19,11 +19,11 @@ class EventFrontendController extends Controller
      */
     public function index()
     {
-        return view('Events::index');
+        return view('FrontendEvents::index');
     }
 
     public function show($slug)
     {
-        return view("Events::detail");
+        return view("FrontendEvents::detail");
     }
 }

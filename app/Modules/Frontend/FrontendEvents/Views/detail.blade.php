@@ -22,7 +22,7 @@ Events Page
     <section class="post-area">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-8 col-sm-12">
                     <div class="single-page-post">
                         <img class="img-fluid" src="{{ asset('img/single.jpg') }}" alt="">
                         <div class="top-wrapper ">
@@ -30,12 +30,16 @@ Events Page
                                 <h2 class="col-lg-8 col-md-12 text-uppercase">
                                     A Discount Toner Cartridge Is Better Than Ever
                                 </h2>
-                                <div class="col-lg-4 col-md-12 right-side d-flex justify-content-end">
+                                <div class="col-lg-4 col-md-12 mt-3 mt-md-0 right-side d-flex float-sm-left justify-content-md-end">
+                                    <div class="user-img d-md-none d-sm-block">
+                                        <img src="{{ asset('img/user.jpg') }}" alt="">
+                                    </div>
+
                                     <div class="desc">
                                         <h2>Mark wiens</h2>
                                         <h3>12 Dec ,2017 11:21 am</h3>
                                     </div>
-                                    <div class="user-img">
+                                    <div class="user-img d-none d-md-block d-sm-none">
                                         <img src="{{ asset('img/user.jpg') }}" alt="">
                                     </div>
                                 </div>
@@ -283,20 +287,7 @@ Events Page
                     </div>
                 </div>
 
-                <div class="col-lg-4 sidebar-area">
-                    <div class="single_widget search_widget">
-                        <div id="imaginary_container">
-                            <div class="input-group stylish-input-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                                <span class="input-group-addon">
-                                    <button type="submit">
-                                        <span class="lnr lnr-magnifier"></span>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="col-lg-4 col-sm-12 sidebar-area">
                     <div class="single_widget about_widget">
                         <img src="{{ asset('img/asset/s-img.jpg') }}" alt="">
                         <h2 class="text-uppercase">Adele Gonzalez</h2>
