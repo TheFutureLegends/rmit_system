@@ -62,6 +62,9 @@
     "scripts": {
         "post-install-cmd": [
             "@php artisan clear-compiled",
+            "@php artisan config:clear",
+            "@php artisan cache:clear",
+            "@php artisan storage:link",
             "chmod -R 777 public/"
         ],
         "post-autoload-dump": [
