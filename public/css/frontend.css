@@ -3320,6 +3320,13 @@ blockquote cite:before {
     padding-bottom: 50px;
 }
 
+@media (max-width: 420px) {
+    .comment-sec-area {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 0px;
+    }
+}
+
 .comment-sec-area a {
     color: #222;
 }
@@ -3556,4 +3563,14 @@ blockquote cite:before {
 
 .g-recaptcha div {
     width: 100% !important;
+}
+
+.list-image {
+    width: 362px;
+    height: 222px;
+}
+
+.thumb-image {
+    width: 62px;
+    height: 62px;
 }

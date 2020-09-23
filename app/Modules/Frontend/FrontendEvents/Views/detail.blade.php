@@ -119,7 +119,7 @@ Events Page
                                 <div class="row justify-content-between">
                                     <div class="col-sm-6 nav-left justify-content-start d-flex">
                                         <div class="thumb">
-                                            <img src="{{ asset('img/prev.jpg') }}" alt="">
+                                            <img class="thumb-image" src="{{ asset('img/prev.jpg') }}" alt="">
                                         </div>
                                         <div class="details">
                                             <p>Prev Post</p>
@@ -132,7 +132,7 @@ Events Page
                                             <h4 class="text-uppercase"><a href="#">A Discount Toner</a></h4>
                                         </div>
                                         <div class="thumb">
-                                            <img src="{{ asset('img/next.jpg') }}" alt="">
+                                            <img class="thumb-image" src="{{ asset('img/next.jpg') }}" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@ Events Page
                                         <div class="single-comment justify-content-between d-flex">
                                             <div class="user justify-content-between d-flex">
                                                 <div class="thumb">
-                                                    <img src="{{ asset('img/asset/c1.jpg') }}" alt="">
+                                                    <img class="thumb-image" src="{{ asset('img/asset/c1.jpg') }}" alt="">
                                                 </div>
                                                 <div class="desc">
                                                     <h5><a href="#">Emilly Blunt</a></h5>
@@ -169,7 +169,7 @@ Events Page
                                         <div class="single-comment justify-content-between d-flex">
                                             <div class="user justify-content-between d-flex">
                                                 <div class="thumb">
-                                                    <img src="{{ asset('img/asset/c2.jpg') }}" alt="">
+                                                    <img class="thumb-image" src="{{ asset('img/asset/c2.jpg') }}" alt="">
                                                 </div>
                                                 <div class="desc">
                                                     <h5><a href="#">Emilly Blunt</a></h5>
@@ -188,7 +188,7 @@ Events Page
                                         <div class="single-comment justify-content-between d-flex">
                                             <div class="user justify-content-between d-flex">
                                                 <div class="thumb">
-                                                    <img src="{{ asset('img/asset/c3.jpg') }}" alt="">
+                                                    <img class="thumb-image" src="{{ asset('img/asset/c3.jpg') }}" alt="">
                                                 </div>
                                                 <div class="desc">
                                                     <h5><a href="#">Emilly Blunt</a></h5>
@@ -207,7 +207,7 @@ Events Page
                                         <div class="single-comment justify-content-between d-flex">
                                             <div class="user justify-content-between d-flex">
                                                 <div class="thumb">
-                                                    <img src="{{ asset('img/asset/c4.jpg') }}" alt="">
+                                                    <img class="thumb-image" src="{{ asset('img/asset/c4.jpg') }}" alt="">
                                                 </div>
                                                 <div class="desc">
                                                     <h5><a href="#">Emilly Blunt</a></h5>
@@ -226,7 +226,7 @@ Events Page
                                         <div class="single-comment justify-content-between d-flex">
                                             <div class="user justify-content-between d-flex">
                                                 <div class="thumb">
-                                                    <img src="{{ asset('img/asset/c5.jpg') }}" alt="">
+                                                    <img class="thumb-image" src="{{ asset('img/asset/c5.jpg') }}" alt="">
                                                 </div>
                                                 <div class="desc">
                                                     <h5><a href="#">Emilly Blunt</a></h5>
@@ -251,6 +251,8 @@ Events Page
                             <div class="container">
                                 <h5 class="text-uppercas pb-50">Leave a Reply</h5>
                                 <form action="#" method="post">
+                                    <!-- For Guest user -->
+                                    @guest
                                     <div class="row d-flex flex-row">
                                         <div class="col-lg-6">
                                             <input name="name" placeholder="Enter your name"
@@ -282,12 +284,38 @@ Events Page
                                                 Comment<span class="lnr lnr-arrow-right"></span></button>
                                         </div>
                                     </div>
+                                    @else
+                                    <!-- For Auth User -->
+                                    <div class="row d-flex flex-row">
+                                        <div class="col-md-12">
+                                            <input name="Subject" placeholder="Subject" onfocus="this.placeholder = ''"
+                                                onblur="this.placeholder = 'Enter your Subject'"
+                                                class="common-input mb-20 form-control" required="" type="text">
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <textarea class="form-control mb-10" name="message" rows="10" placeholder="Messege"
+                                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'"
+                                                required=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex flext-row">
+                                        <div class="col-lg-5 col-md-12 col-sm-12 mt-1 mt-md-0 float-lg-left">
+                                            <div class="g-recaptcha" data-sitekey="{{ env("RECAPTCHA_KEY") }}"></div>
+                                        </div>
+
+                                        <div class="col-lg-7 col-md-12">
+                                            <button type="submit" class="primary-btn mt-3 float-lg-right">Send
+                                                Comment<span class="lnr lnr-arrow-right"></span></button>
+                                        </div>
+                                    </div>
+                                    @endguest
                                 </form>
                         </section>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-sm-12 sidebar-area">
+                <div class="col-lg-4 col-sm-12 mt-0 pt-sm-0 sidebar-area">
                     <div class="single_widget about_widget">
                         <img src="{{ asset('img/asset/s-img.jpg') }}" alt="">
                         <h2 class="text-uppercase">Adele Gonzalez</h2>

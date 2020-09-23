@@ -120,6 +120,18 @@ class Events extends Model implements HasMedia
                     ->addMediaConversion('main')
                     ->width(950)
                     ->height(580);
+                $this
+                    ->addMediaConversion('list')
+                    ->width(362)
+                    ->height(222);
+                $this
+                    ->addMediaConversion('detail')
+                    ->width(752)
+                    ->height(353);
+                $this
+                    ->addMediaConversion('thumb')
+                    ->width(62)
+                    ->height(62);
             });
 
         $this->addMediaCollection('file')
