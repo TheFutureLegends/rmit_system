@@ -10,5 +10,10 @@ Route::group(
             'as' => 'events.frontend.index',
             'uses' => 'EventController@index',
         ]);
+
+        Route::get('/event/{slug}', [
+            'as' => 'events.frontend.show',
+            'uses' => 'EventController@show',
+        ]);
     }
 );

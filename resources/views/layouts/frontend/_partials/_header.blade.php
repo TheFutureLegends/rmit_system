@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="{{ route("home.index") }}">
-                <img src="img/logo.png" alt="">
+                <img src="{{ asset('img/logo.png') }}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,7 @@
                             {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="single.html">Dashboard</a>
+                            <a class="dropdown-item" href="{{ route('dashboard.index') }}">Dashboard</a>
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();

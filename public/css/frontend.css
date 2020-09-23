@@ -1946,7 +1946,8 @@ i {
 .single-footer-widget .bb-btn,
 .footer-social a:hover,
 .primary-btn {
-    background-image: -ms-linear-gradient(45deg, #62bdfc 0%, #8490ff 100%);
+    background: rgb(0, 212, 255);
+    background: linear-gradient(45deg, #62bdfc 0%, #8490ff 100%);
 }
 
 .top-section-area {
@@ -3534,4 +3535,12 @@ blockquote cite:before {
     .active a:hover {
         color: white;
     }
+}
+
+.text-red {
+    color: red;
+}
+
+.g-recaptcha div {
+    width: 100% !important;
 }

@@ -51,7 +51,7 @@
                     <div class="single-posts col-lg-4 col-sm-4">
                         <img class="img-fluid" src="{{ asset('img/asset/p1.jpg') }}" alt="">
                         <div class="date mt-20 mb-20">15 Jan 2018</div>
-                        <a href="#">
+                        <a href="{{ route('events.frontend.show', 'abc-def') }}">
                             <h4 class="text-uppercase">It S Hurricane Season Visiting </h4>
                         </a>
                     </div>

@@ -21,4 +21,9 @@ class EventController extends Controller
     {
         return view('Events::index');
     }
+
+    public function show($slug)
+    {
+        return view("Events::detail");
+    }
 }
