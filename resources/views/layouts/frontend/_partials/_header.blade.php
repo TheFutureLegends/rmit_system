@@ -15,7 +15,7 @@
                     <li {!! set_full_request_class(['events', 'event/*'], 'class="active"') !!}><a href="{{ route('events.frontend.index') }}">Events</a></li>
                     <!-- Dropdown -->
                     @guest
-                    <li><a href="{{ route('login') }}">Login</a></li>
+                    <li {!! set_full_request_class(['login'], 'class="active"') !!}><a href="{{ route('login') }}">Login</a></li>
                     @else
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">

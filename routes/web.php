@@ -32,6 +32,10 @@ Route::get('/verify/{email}/{token}', function ($email, $token) {
     return redirect()->route('login');
 });
 
-Auth::routes();
+// Auth::routes();
+
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+
+Route::post('/login', 'Auth\LoginController@login')->name('login');
 
 Route::get('/home', 'HomeController@index')->name('home');
