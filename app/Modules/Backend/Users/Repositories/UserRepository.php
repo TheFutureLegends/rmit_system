@@ -259,11 +259,6 @@ class UserRepository implements UserRepositoryInterface
 
         $result['token'] = $token;
 
-        /**
-         * This is for developing purpose only
-         */
-        $result['status'] = 1;
-
         return $result;
     }
 }

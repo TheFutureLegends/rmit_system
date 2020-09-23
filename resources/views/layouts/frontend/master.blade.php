@@ -2,10 +2,11 @@
 	<html lang="zxx" class="no-js">
 
 	<head>
-	    <!-- Mobile Specific Meta -->
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Mobile Specific Meta -->
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 	    <!-- Favicon-->
-	    <link rel="shortcut icon" href="img/fav.png">
+        <link rel="icon" type="image/png" href="{{ ('images/rmit-icon.png') }}">
+
 	    <!-- Author Meta -->
 	    <meta name="author" content="colorlib">
 	    <!-- Meta Description -->
