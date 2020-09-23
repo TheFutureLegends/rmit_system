@@ -3366,8 +3366,12 @@ blockquote cite:before {
     color: #222;
 }
 
-.commentform-area {
-    padding-bottom: 100px;
+@media (min-width: 421px) {
+    .commentform-area {
+        padding-bottom: 100px;
+        margin-bottom: 100px;
+        padding-top: 80px;
+    }
 }
 
 .commentform-area .form-control {

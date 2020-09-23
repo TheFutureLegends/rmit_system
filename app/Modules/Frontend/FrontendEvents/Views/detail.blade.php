@@ -247,7 +247,7 @@ Events Page
                         <!-- End comment-sec Area -->
 
                         <!-- Start commentform Area -->
-                        <section class="commentform-area  pb-120 pt-80 mb-100">
+                        <section class="commentform-area mb-5">
                             <div class="container">
                                 <h5 class="text-uppercas pb-50">Leave a Reply</h5>
                                 <form action="#" method="post">
