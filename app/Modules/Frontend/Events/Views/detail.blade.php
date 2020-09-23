@@ -116,7 +116,7 @@ Events Page
                                 <div class="row justify-content-between">
                                     <div class="col-sm-6 nav-left justify-content-start d-flex">
                                         <div class="thumb">
-                                            <img src="img/prev.jpg" alt="">
+                                            <img src="{{ asset('img/prev.jpg') }}" alt="">
                                         </div>
                                         <div class="details">
                                             <p>Prev Post</p>
@@ -129,7 +129,7 @@ Events Page
                                             <h4 class="text-uppercase"><a href="#">A Discount Toner</a></h4>
                                         </div>
                                         <div class="thumb">
-                                            <img src="img/next.jpg" alt="">
+                                            <img src="{{ asset('img/next.jpg') }}" alt="">
                                         </div>
                                     </div>
                                 </div>
