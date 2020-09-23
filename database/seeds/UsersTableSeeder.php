@@ -1,7 +1,7 @@
 <?php
 
 use App\User;
-use Faker\Factory;
+// use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -14,8 +14,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Factory::create();
-
         $super_admin = User::create([
             'name' => 'Super admin',
             'email' => 'super-admin@event.app',
