@@ -42,7 +42,6 @@ class SendVerifyEmailJob implements ShouldQueue
             'password' => $this->password,
             'token' => ($this->user)->token
         ];
-
         Mail::send('mail.confirm', $data, function ($message) {
             $message->from(env('MAIL_FROM_ADDRESS'), 'RMIT Club Management System');
             $message->to(($this->user)->email, ($this->user)->name);
