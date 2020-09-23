@@ -22,11 +22,16 @@ Latest Events
     <!-- Start post Area -->
     <section class="post-area">
         <div class="container">
+            @if ($events->isEmpty())
             <div class="row sidebar-area d-flex justify-content-center">
                 <h1 class="text-red mb-50">Sorry! There is no event available at the moment</h1>
 
                 <img src="{{ asset('images/404-error.jpg') }}" alt="">
             </div>
+            @else
+
+            @endif
+
             <!-- New content -->
             <div class="row sidebar-area">
                 @for ($i = 0; $i < 3; $i++)

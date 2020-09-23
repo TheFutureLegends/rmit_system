@@ -8,8 +8,8 @@ Event Detail
 <!-- Start top-section Area -->
 <section class="top-section-area section-gap">
     <div class="container">
-        <div class="row justify-content-md-between justify-content-sm-center align-items-sm-center d-flex">
-            <div class="col-lg-8 top-left">
+        <div class="row justify-content-md-between justify-content-sm-center align-items-sm-center text-sm-center d-flex">
+            <div class="col-lg-12 top-left">
                 <h1 class="text-white mb-20">Event Detail</h1>
             </div>
         </div>

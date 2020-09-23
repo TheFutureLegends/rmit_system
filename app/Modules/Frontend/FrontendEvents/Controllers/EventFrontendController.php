@@ -9,9 +9,14 @@ use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
+use App\Modules\Backend\Events\Models\Events;
 
 class EventFrontendController extends Controller
 {
+    public function __construct()
+    {
+        # code...
+    }
     /**
      * Show the application dashboard.
      *
@@ -19,7 +24,11 @@ class EventFrontendController extends Controller
      */
     public function index()
     {
-        return view('FrontendEvents::index');
+        $events = Events::query()->orderBy('created_at')->get();
+        
+        return view('FrontendEvents::index')->with([
+            'events' => $events
+        ]);
     }
 
     public function show($slug)
