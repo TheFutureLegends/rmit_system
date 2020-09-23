@@ -59,6 +59,7 @@
                         <form action="{{ route('profile.update.bio') }}" class="needs-validation" method="post" novalidate="novalidate">
                             @csrf
                             <div class="form-row mt-3">
+                                @if (!Auth::user()->hasRole('president'))
                                 <div
                                     class="{{ (Auth::user()->hasRole('super-admin')) ? 'col-md-4' : 'col-md-12' }} col-md-4 mb-3">
                                     <label for="name">Name (Min: 5 characters)</label>
@@ -68,6 +69,7 @@
                                         Looks good!
                                     </div>
                                 </div>
+                                @endif
                                 @if (Auth::user()->hasRole('super-admin'))
                                 <div class="col-md-8 mb-3">
                                     <label for="email">Email</label>
@@ -162,7 +164,11 @@
         <div class="main-card-md-3 card mb-3">
             <div class="card-body">
                 <div class="position-relative form-group text-center">
+                    @if (Auth::user()->hasRole('president'))
+                    <img src="{{ ( !(Auth::user()->president->getMedia('logo'))->isEmpty() ) ? Auth::user()->president->getFirstMediaUrl('logo', 'avatar') : asset('images/default_avatar.png') }}" class="rounded-circle avatar" id="preview" alt="" srcset="">
+                    @else
                     <img src="{{ ( !(Auth::user()->getMedia('avatar'))->isEmpty() ) ? Auth::user()->getFirstMediaUrl('avatar', 'profile') : asset('images/default_avatar.png') }}" class="rounded-circle avatar" id="preview" alt="" srcset="">
+                    @endif
                 </div>
                 <div class="form-row mb-3">
                     <div class="col-md-12 text-center">
