@@ -196,45 +196,11 @@ class UserRepository implements UserRepositoryInterface
             }
         }
 
-        // if ($this->user != null) {
-        //     $job = (new SendVerifyEmailJob($this->user, $password))->delay(Carbon::now()->addSeconds(15));
+        if ($this->user != null) {
+            $job = (new SendVerifyEmailJob($this->user, $password))->delay(Carbon::now()->addSeconds(15));
 
-        //     dispatch($job);
-        // }
-
-        // $password = 'password';
-
-        // $token = Str::random(60);
-
-        // $user = User::create($this->format($token, $password, $request));
-
-        // if (Auth::user()->hasRole('super-admin')) {
-
-        //     $user->assignRole('admin');
-
-        // } else if (Auth::user()->hasRole('admin')) {
-
-        //     $user->assignRole('advisor');
-
-        // } else if (Auth::user()->hasRole('advisor')) {
-
-        //     $user->assignRole('president');
-
-        //     // Add created user as temporary to teams table
-        //     $this->teamRepository->store($user->toArray());
-
-        // } else {
-        //     // Club member that has permission to create new user
-        //     $user->assignRole($request['role']);
-        // }
-
-        // $result['user'] = $user;
-
-        // $result['password'] = $password;
-
-        // $job = (new SendVerifyEmailJob($user, $password))->delay(Carbon::now()->addSeconds(15));
-
-        // dispatch($job);
+            dispatch($job);
+        }
 
         return true;
     }
@@ -291,7 +257,7 @@ class UserRepository implements UserRepositoryInterface
 
         $result['password'] = Hash::make($password);
 
-        // $result['token'] = $token;
+        $result['token'] = $token;
 
         /**
          * This is for developing purpose only
