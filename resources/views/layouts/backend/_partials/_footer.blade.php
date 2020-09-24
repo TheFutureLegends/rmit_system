@@ -4,13 +4,22 @@
             <div class="app-footer-left">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a href="javascript:void(0);" class="nav-link">
-                            Footer Link 1
+                        <a href="{{ route('dashboard.index') }}" class="nav-link">
+                            Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="javascript:void(0);" class="nav-link">
-                            Footer Link 2
+                        <a href="{{ route('profile.index') }}" class="nav-link">
+                            @if (Auth::user()->hasRole('president'))
+                            Club Profile
+                            @else
+                            Profile
+                            @endif
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('dashboard.index') }}" class="nav-link">
+                            Dashboard
                         </a>
                     </li>
                 </ul>

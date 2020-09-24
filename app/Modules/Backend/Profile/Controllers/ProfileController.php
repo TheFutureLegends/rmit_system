@@ -37,43 +37,49 @@ class ProfileController extends Controller
         return view('Profile::index');
     }
 
+    public function update_club(Request $request)
+    {
+        $request->validate([
+            'description' => 'required|string|min:5'
+        ], [
+            'description.required' => __('ruleMessages.description_required'),
+            'description.min' => __('ruleMessages.description_min')
+        ]);
+        $user = Auth::user();
+
+        $user->president->description = $request->description;
+
+        $user->president->save();
+
+        return redirect()->route('profile.index');
+    }
+
     public function update_bio(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|min:5|max:255'
+            'name' => 'required|string|min:5|max:255',
         ], [
             'name.required' => 'You can not leave name empty',
-            'name.min' => __('ruleMessages.name_profile_min')
+            'name.min' => __('ruleMessages.name_min'),
+            'name.max' => __('ruleMessages.name_max'),
         ]);
 
-        if (!Auth::user()->hasRole('president')) {
-            if (isset($request->about_me)) {
-                $request->validate([
-                    'about_me' => "string|min:10|max:255"
-                ], [
-                    'about_me.min' => "Your about cannot be less than :min characters",
-                    'about_me.max' => "Your about cannot be greater than :max characters"
-                ]);
-            }
-
-            $user = Auth::user();
-
-            $user->name = $request->name;
-
-            $user->about_me = $request->about_me;
-
-            $user->save();
-        } else {
-            $user = Auth::user();
-
-            $user->name = $request->name;
-
-            $user->president->description = $request->description;
-
-            $user->president->save();
-
-            $user->save();
+        if (isset($request->about_me)) {
+            $request->validate([
+                'about_me' => "string|min:10|max:255"
+            ], [
+                'about_me.min' => __('ruleMessages.about_me_min'),
+                'about_me.max' => __('ruleMessages.about_me_max')
+            ]);
         }
+
+        $user = Auth::user();
+
+        $user->name = $request->name;
+
+        $user->about_me = $request->about_me;
+
+        $user->save();
 
         return redirect()->route('profile.index');
     }

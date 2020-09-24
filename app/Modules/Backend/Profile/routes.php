@@ -12,6 +12,11 @@ Route::group(
                 'uses' => 'ProfileController@index',
             ]);
 
+            Route::post('/update/club', [
+                'as' => 'profile.update.club',
+                'uses' => 'ProfileController@update_club',
+            ]);
+
             Route::post('/update/bio', [
                 'as' => 'profile.update.bio',
                 'uses' => 'ProfileController@update_bio',
