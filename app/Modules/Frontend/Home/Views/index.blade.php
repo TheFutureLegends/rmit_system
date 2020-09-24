@@ -33,7 +33,8 @@
 <!-- End banner Area -->
 
 
-<!-- Start category Area -->
+<!-- Start Incoming Event -->
+@if (!$incoming->isEmpty())
 <section class="travel-area section-gap" id="news">
     <div class="container">
         <div class="row d-flex justify-content-center">
@@ -47,36 +48,28 @@
         </div>
         <div class="top-posts">
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row">
+                    @foreach ($incoming as $item)
                     <div class="single-posts col-lg-4 col-sm-4">
-                        <img class="img-fluid" src="{{ asset('img/asset/p1.jpg') }}" alt="">
-                        <div class="date mt-20 mb-20">15 Jan 2018</div>
-                        <a href="{{ route('events.frontend.show', 'abc-def') }}">
-                            <h4 class="text-uppercase">It S Hurricane Season Visiting </h4>
+                        <img class="img-fluid list-image" src="{{ $item->getFirstMediaUrl('cover', 'list') }}" alt="">
+                        <div class="date mt-20 mb-20">
+                            {{ Carbon::parse($item->start_at)->isoFormat("DD MMM YYYY") }}
+                        </div>
+                        <a href="{{ route('events.frontend.show', $item->slug) }}">
+                            <h4 class="text-uppercase">{{ words($item->name, 5) }}</h4>
                         </a>
                     </div>
-                    <div class="single-posts col-lg-4 col-sm-4">
-                        <img class="img-fluid" src="{{ asset('img/asset/p2.jpg') }}" alt="">
-                        <div class="date mt-20 mb-20">16 Jan 2018</div>
-                        <a href="#">
-                            <h4 class="text-uppercase">What Makes A Hotel Boutique</h4>
-                        </a>
-                    </div>
-                    <div class="single-posts col-lg-4 col-sm-4">
-                        <img class="img-fluid" src="{{ asset('img/c3.jpg') }}" alt="">
-                        <div class="date mt-20 mb-20">17 Jan 2018</div>
-                        <a href="#">
-                            <h4 class="text-uppercase">What Makes A Hotel Boutique</h4>
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- End category Area -->
+@endif
+<!-- End Incoming Event -->
 
-<!-- Start travel Area -->
+<!-- Start Latest Events -->
+@if (!$latest->isEmpty())
 <section class="category-area section-gap" id="events">
     <div class="container">
         <div class="row d-flex justify-content-center">
@@ -89,77 +82,35 @@
             </div>
         </div>
         <div class="row">
+            @foreach ($latest as $event)
             <div class="col-lg-6 travel-left">
                 <div class="single-travel media pb-70">
-                    <img class="img-fluid d-flex  mr-3" src="img/t1.jpg" alt="">
+                    <img class="img-fluid d-flex mr-3" src="img/t1.jpg" alt="">
                     <div class="dates">
-                        <span>20</span>
-                        <p>Dec</p>
+                        <span>{{ Carbon::parse($event->start_at)->isoFormat("DD") }}</span>
+                        <p>{{ Carbon::parse($event->start_at)->isoFormat("MMM") }}</p>
                     </div>
                     <div class="media-body align-self-center">
                         <h4 class="mt-0">
-                            <a href="#">Addiction When Gambling Becomes A Problem</a>
+                            <a href="{{ route('events.frontend.show', $event->slug) }}">{{ $event->name }}</a>
                         </h4>
-                        <p>inappropriate behavior Lorem ipsum dolor sit amet, consectetur.inappropriate behavior
-                            Lorem ipsum dolor sit amet, consectetur.</p>
-                    </div>
-                </div>
-                <div class="single-travel media">
-                    <img class="img-fluid d-flex  mr-3" src="img/t3.jpg" alt="">
-                    <div class="dates">
-                        <span>20</span>
-                        <p>Dec</p>
-                    </div>
-                    <div class="media-body align-self-center">
-                        <h4 class="mt-0"><a href="#">Addiction When Gambling
-                                Becomes A Problem</a></h4>
-                        <p>inappropriate behavior Lorem ipsum dolor sit amet, consectetur.</p>
-                        <div class="meta-bottom d-flex justify-content-between">
+                        <p>{!! words($event->description, 20) !!}</p>
+                        {{-- <div class="meta-bottom d-flex justify-content-between">
                             <p><span class="lnr lnr-heart"></span> 15 Likes</p>
                             <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 travel-right">
-                <div class="single-travel media pb-70">
-                    <img class="img-fluid d-flex  mr-3" src="img/t2.jpg" alt="">
-                    <div class="dates">
-                        <span>20</span>
-                        <p>Dec</p>
-                    </div>
-                    <div class="media-body align-self-center">
-                        <h4 class="mt-0"><a href="#">Addiction When Gambling
-                                Becomes A Problem</a></h4>
-                        <p>inappropriate behavior Lorem ipsum dolor sit amet, consectetur.</p>
-                        <div class="meta-bottom d-flex justify-content-between">
-                            <p><span class="lnr lnr-heart"></span> 15 Likes</p>
-                            <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-travel media">
-                    <img class="img-fluid d-flex  mr-3" src="img/t4.jpg" alt="">
-                    <div class="dates">
-                        <span>20</span>
-                        <p>Dec</p>
-                    </div>
-                    <div class="media-body align-self-center">
-                        <h4 class="mt-0"><a href="#">Addiction When Gambling
-                                Becomes A Problem</a></h4>
-                        <p>inappropriate behavior Lorem ipsum dolor sit amet, consectetur.</p>
-                        <div class="meta-bottom d-flex justify-content-between">
-                            <p><span class="lnr lnr-heart"></span> 15 Likes</p>
-                            <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a href="#" class="primary-btn load-more pbtn-2 text-uppercase mx-auto mt-60">Load More </a>
+            @endforeach
+        </div>
+        <div class="row">
+            <a href="{{ route('events.frontend.index') }}" class="primary-btn load-more pbtn-2 text-uppercase mx-auto mt-60">Load More </a>
         </div>
     </div>
 </section>
-<!-- End travel Area -->
+@endif
+<!-- End Latest Events -->
 
 <!-- Start team Area -->
 <section class="team-area section-gap">
@@ -189,7 +140,7 @@
                 <div class="row justify-content-center">
                     <div class="single-team">
                         <div class="thumb">
-                            <img class="img-fluid" src="img/team1.jpg" alt="">
+                            <img class="img-fluid" src="{{ asset('images/developer.jpg') }}" alt="">
                             <div class="align-items-center justify-content-center d-flex">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -197,11 +148,12 @@
                             </div>
                         </div>
                         <div class="meta-text mt-30 text-center">
-                            <h4>Dora Walker</h4>
-                            <p>Senior Core Developer</p>
+                            <h4>Nguyễn Hữu Trí</h4>
+                            <br/>
+                            <p>Senior PHP Developer</p>
                         </div>
                     </div>
-                    <div class="single-team">
+                    {{-- <div class="single-team">
                         <div class="thumb">
                             <img class="img-fluid" src="img/team2.jpg" alt="">
                             <div class="align-items-center justify-content-center d-flex">
@@ -214,7 +166,7 @@
                             <h4>Lena Keller</h4>
                             <p>Creative Content Developer</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

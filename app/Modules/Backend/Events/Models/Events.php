@@ -117,10 +117,14 @@ class Events extends Model implements HasMedia
             ->acceptsMimeTypes(['image/jpeg', 'image/jpg', 'image/png'])
             ->singleFile()
             ->registerMediaConversions(function (Media $media) {
+                // $this
+                //     ->addMediaConversion('main')
+                //     ->width(950)
+                //     ->height(580);
                 $this
-                    ->addMediaConversion('main')
-                    ->width(950)
-                    ->height(580);
+                    ->addMediaConversion('home')
+                    ->width(195)
+                    ->height(180);
                 $this
                     ->addMediaConversion('list')
                     ->width(362)
