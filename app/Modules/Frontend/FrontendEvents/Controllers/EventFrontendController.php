@@ -25,7 +25,9 @@ class EventFrontendController extends Controller
     public function index()
     {
         $events = Events::query()->orderBy('created_at')->get();
-        
+
+        // dd($events);
+
         return view('FrontendEvents::index')->with([
             'events' => $events
         ]);
