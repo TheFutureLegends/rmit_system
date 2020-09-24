@@ -148,9 +148,7 @@ class UserRepository implements UserRepositoryInterface
 
     public function store(array $request)
     {
-        // $password = Str::random(10, 30);
-
-        $password = 'password';
+        $password = Str::random(10, 30);
 
         $token = Str::random(60);
 

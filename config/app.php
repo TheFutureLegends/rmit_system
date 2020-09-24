@@ -170,6 +170,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
+        Superbalist\LaravelGoogleCloudStorage\GoogleCloudStorageServiceProvider::class,
 
         /**
          * Modules Service Providers
