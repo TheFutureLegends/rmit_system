@@ -41,7 +41,7 @@ class RolesAndPermissionsTableSeeder extends Seeder
 
         $event_permission = Permission::query()->where([
             ['name', 'LIKE', 'event.%']
-        ])->get();
+        ])->get()->toArray();
 
         $user_permission = Permission::query()->where([
             ['name', 'LIKE', 'user.%']

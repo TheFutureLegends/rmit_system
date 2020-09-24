@@ -176,6 +176,10 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->method());
+
+        die;
+        
         $this->authorize('create', Events::class);
 
         $request->validate([
