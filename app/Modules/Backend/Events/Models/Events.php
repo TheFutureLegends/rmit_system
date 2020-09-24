@@ -113,6 +113,7 @@ class Events extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('cover')
+            ->useDisk('s3')
             ->acceptsMimeTypes(['image/jpeg', 'image/jpg', 'image/png'])
             ->singleFile()
             ->registerMediaConversions(function (Media $media) {
@@ -135,6 +136,7 @@ class Events extends Model implements HasMedia
             });
 
         $this->addMediaCollection('file')
+            ->useDisk('s3')
             ->acceptsFile(function (File $file) {
                 return $file->mimeType === 'application/pdf';
             });
