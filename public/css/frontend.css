@@ -3573,9 +3573,9 @@ blockquote cite:before {
     color: red;
 }
 
-.g-recaptcha div {
-    width: 100% !important;
-}
+/* .single-post-content {
+    overflow: hidden;
+} */
 
 .list-image {
     width: 362px;
