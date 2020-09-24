@@ -77,6 +77,7 @@ class Clubs extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('logo')
+            ->useDisk('s3')
             ->acceptsMimeTypes(['image/jpeg', 'image/jpg', 'image/png'])
             ->singleFile()
             ->registerMediaConversions(function (Media $media) {
