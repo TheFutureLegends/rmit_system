@@ -16,6 +16,11 @@ before_script:
   - composer install
   - npm install
   - php artisan key:generate
-  - php artisan migrate:fresh --seed
+  - php artisan migrate
 script:
   - vendor/bin/phpunit
+deploy:
+  provider: heroku
+  api_key:
+    secure: "l+8rSlwDP0f8hq71nj8pSZMF/QawNa8Vos9Vl4IpgCA/b8QHnEADphjYKbnUl2zYa3qjXMcf8j/lLrwRqwV6snYuDg02af4W62iFnujZTPNIAhH49EFdp1jsNL57KqmU1Ga367BnkIXjdcz+yMK0rPVkbbuKhTwM7K4YUK7oMb6m5SM5l2idmasMTLREOfxnDqS+RaNC6bJhrE7Cgpn0pezP/MAjk+hX5WEJ+KvnlQcW6XD9zHxSjWFaq1WFmWzqyYPU7l/2kK5qn/lYwSS61+tQt/chQOQvCuR6QTwJ/xuO3DHJFyeQJyedVXgYzRmyIqXERvMzi9YUEdra/0FIRhjp/l/4v03n4zjAJiau/lq7Rn+LVtFg7cbimYN/cpz9kf9V6xVwg9lOqG8LhxIHV27RMlkzU9tCy+SM2MtqIDf5c/LbpWJqSlJUtgQGxL4tMW9FIW66typrnjTxkj/MHcMv3lPWxQELioYChGs2I9sOJ3SpxcGSMns07eokFhKL3E8cyBt2IsZkGDzulkOWiaVP0ZvSNr9BwmPq2UmMikJrVgRmTqj7rbhfhpgGxNd4FqhfxqYAR9WUIT5oQCcQdE+2JPsGNhFpghYFdrMGtg5UJos0Avp7pUAJDWwF+OlfCapwCgqeNGFyDNM49Civni5waEPTMFVnTsMVbLWTaQo="
+  app: rmit-event-heroku
