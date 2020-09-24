@@ -101,7 +101,7 @@ class EventRepository implements EventRepositoryInterface
             }
         }
 
-        if ($method == "PUT") {
+        if ($method == "PUT" && !Auth::user()->hasAnyRole(['super-admin', 'admin', 'advisor'])) {
             $result['status'] = 0;
         }
 
