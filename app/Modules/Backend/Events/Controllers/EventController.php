@@ -176,6 +176,8 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        echo $request->method();
+
         dd( gettype($request->method()) );
 
         die;
