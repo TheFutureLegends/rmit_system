@@ -54,7 +54,11 @@ Event Detail
                             </ul>
                         </div>
                         <div class="single-post-content">
-                            {!! $event->description !!}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {!! $event->description !!}
+                                </div>
+                            </div>
                         </div>
                         <div class="bottom-wrapper">
                             <div class="row">
