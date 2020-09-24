@@ -3586,3 +3586,13 @@ blockquote cite:before {
     width: 62px;
     height: 62px;
 }
+
+.club-logo-thumb {
+    width: 40px;
+    height: 40px;
+}
+
+.club-logo-bio {
+    width: 150px;
+    height: 150px;
+}

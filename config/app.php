@@ -242,6 +242,7 @@ return [
         /**
          * Package aliases
          */
+        'Carbon' => Carbon\Carbon::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
     ],

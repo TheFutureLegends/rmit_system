@@ -160,7 +160,10 @@ class Events extends Model implements HasMedia
      */
     public function scopeAvailable($query)
     {
-        return $query->where('end_at', '>', Carbon::now(config('app.timezone'))->isoFormat('Y-MM-DD H:mm:ss'));
+        return $query->where([
+            ['end_at', '>', Carbon::now(config('app.timezone'))->isoFormat('Y-MM-DD H:mm:ss')],
+            ['status', '=', 1]
+        ]);
     }
 
     /**

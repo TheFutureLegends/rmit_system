@@ -90,6 +90,15 @@ class Clubs extends Model implements HasMedia
                     ->addMediaConversion('avatar')
                     ->width(100)
                     ->height(100);
+
+                $this
+                    ->addMediaConversion('bio')
+                    ->width(150)
+                    ->height(150);
+                $this
+                    ->addMediaConversion('thumb')
+                    ->width(40)
+                    ->height(40);
             });
     }
 

@@ -24,7 +24,7 @@ class EventFrontendController extends Controller
      */
     public function index()
     {
-        $events = Events::query()->orderBy('created_at')->get();
+        $events = Events::query()->available()->orderBy('updated_at', 'DESC')->get();
 
         // dd($events);
 
@@ -35,6 +35,10 @@ class EventFrontendController extends Controller
 
     public function show($slug)
     {
-        return view("FrontendEvents::detail");
+        $event = Events::query()->where('slug', $slug)->firstOrFail();
+
+        return view("FrontendEvents::detail")->with([
+            'event' => $event
+        ]);
     }
 }

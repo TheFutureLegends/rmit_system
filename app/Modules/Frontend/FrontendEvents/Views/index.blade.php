@@ -29,7 +29,27 @@ Latest Events
                 <img src="{{ asset('images/404-error.jpg') }}" alt="">
             </div>
             @else
-
+                <div class="row sidebar-area">
+                @foreach ($events as $event)
+                    <div class="single-posts col-lg-4 col-sm-4">
+                        <img class="img-fluid list-image" src="{{ $event->getFirstMediaUrl('cover', 'list') }}" alt="">
+                        <div class="date mt-20 mb-20">{{ Carbon::parse($event->start_at)->isoFormat("DD MMM YYYY") }}</div>
+                        <div class="detail">
+                            <a href="{{ route('events.frontend.show', $event->slug) }}">
+                                <h4 class="pb-20">{{ $event->name }}</h4>
+                            </a>
+                            <p>
+                                {!! words($event->description, 30) !!}
+                            </p>
+                            {{-- <p class="footer pt-20">
+                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                <a href="#">06 Likes</a> <i class="ml-20 fa fa-comment-o" aria-hidden="true"></i> <a
+                                    href="#">02 Comments</a>
+                            </p> --}}
+                        </div>
+                    </div>
+                @endforeach
+                </div>
             @endif
 
             <!-- New content -->
