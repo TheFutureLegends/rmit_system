@@ -49,7 +49,7 @@ class EventRepository implements EventRepositoryInterface
 
     public function store(string $method, array $request)
     {
-        $event = Events::create($method, $this->format($request));
+        $event = Events::create($this->format($method, $request));
 
         $this->addFile($event, $request);
 
