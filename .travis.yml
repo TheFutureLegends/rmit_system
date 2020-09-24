@@ -1,7 +1,5 @@
 language: php
 php:
-  - 7.2
-  - 7.3
   - 7.4
 services:
   - mysql
@@ -14,7 +12,6 @@ before_script:
   - sudo mysql -e 'create database homestead;'
   - composer self-update
   - composer install
-  - npm install
   - php artisan key:generate
   - php artisan migrate
 script:
