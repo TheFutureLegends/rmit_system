@@ -27,8 +27,8 @@
             <div class="app-footer-right">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a href="javascript:void(0);" class="nav-link">
-                            Footer Link 3
+                        <a href="{{ route('home.index') }}" target="_blank" class="nav-link">
+                            Home page
                         </a>
                     </li>
                     <li class="nav-item">

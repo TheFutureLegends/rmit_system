@@ -89,11 +89,6 @@ class Clubs extends Model implements HasMedia
             ->singleFile()
             ->registerMediaConversions(function (Media $media) {
                 $this
-                    ->addMediaConversion('main')
-                    ->width(950)
-                    ->height(580);
-
-                $this
                     ->addMediaConversion('avatar')
                     ->width(100)
                     ->height(100);

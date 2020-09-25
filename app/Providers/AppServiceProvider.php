@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Permission\Models\Permission;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use App\Modules\Backend\Clubs\Models\Clubs;
+use App\Observers\ClubObserver;
+use App\User;
+use App\Observers\UserObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -73,5 +77,9 @@ class AppServiceProvider extends ServiceProvider
         //     } while ($activity->where($activity->getKeyName(), $activity->id)->first() != null);
         // });
         /* End Spatie: UUID Adjustment */
+
+        Clubs::observe(ClubObserver::class);
+
+        User::observe(UserObserver::class);
     }
 }

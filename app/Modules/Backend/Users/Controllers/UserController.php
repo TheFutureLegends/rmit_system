@@ -191,15 +191,7 @@ class UserController extends Controller
      */
     public function show($email)
     {
-        $user = User::query()->where('email', $email)->first();
-
-        if ($user->president) {
-            echo "Exist";
-        } else {
-            echo "Fail";
-        }
-
-        dd($user->president);
+        
     }
 
     /**

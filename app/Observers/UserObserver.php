@@ -36,7 +36,19 @@ class UserObserver
      */
     public function deleted(User $user)
     {
-        //
+        if ($user->hasRole('president')) {
+            $user->president->clearMediaCollection('logo');
+
+            $events = $user->president->event;
+
+            if (!$events->isEmpty()) {
+                foreach ($events as $event) {
+                    $event->clearMediaCollection('cover');
+
+                    $event->clearMediaCollection('file');
+                }
+            }
+        }
     }
 
     /**

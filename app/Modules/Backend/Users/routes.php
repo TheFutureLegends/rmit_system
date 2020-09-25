@@ -35,10 +35,10 @@ Route::group(
         });
 
         Route::group(['prefix' => 'user'], function () {
-            Route::get('/show/{email}', [
-                'as' => 'user.show',
-                'uses' => 'UserController@show'
-            ]);
+            // Route::get('/show/{email}', [
+            //     'as' => 'user.show',
+            //     'uses' => 'UserController@show'
+            // ]);
 
             Route::get('/create', [
                 'as' => 'user.create',

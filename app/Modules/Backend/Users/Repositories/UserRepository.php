@@ -233,6 +233,27 @@ class UserRepository implements UserRepositoryInterface
                     ->first();
             } else {
                 # Other executives have permission to delete user
+                $user = Teams::query()
+                    ->where([
+                        ['leader_id', '=', Auth::user()->member->leader_id]
+                    ])
+                    ->where([
+                        ['emai', '=', $email]
+                    ])->first();
+            }
+        }
+
+        if ($user->hasRole('president')) {
+            ($user->president)->clearMediaCollection('logo');
+
+            $events = ($user->president)->event;
+
+            if (!$events->isEmpty()) {
+                foreach ($events as $event) {
+                    $event->clearMediaCollection('cover');
+
+                    $event->clearMediaCollection('file');
+                }
             }
         }
 

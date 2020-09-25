@@ -3581,9 +3581,10 @@ blockquote cite:before {
     width: 362px;
     height: 222px;
 }
-.team-image-home {
-    width: 263px;
-    height: 300px;
+
+.event-image-home {
+    width: 195px;
+    height: 180px;
 }
 
 .thumb-image {

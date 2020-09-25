@@ -116,7 +116,7 @@
                             <div class="position-relative form-group">
                                 <label>Club Logo</label>
                                 @if (isset($club))
-                                    <img src="{{ $club->getFirstMediaUrl('logo', 'main') }}" id="preview" width="100%" height="200px" alt="" srcset="">
+                                    <img src="{{ $club->getFirstMediaUrl('logo', 'bio') }}" id="preview" width="100%" height="200px" alt="" srcset="">
                                 @else
                                 <img src="{{ asset('images/image_placeholder.jpg') }}" id="preview" width="100%" height="200px" alt="" srcset="">
                                 @endif

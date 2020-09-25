@@ -7,9 +7,15 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Modules\Backend\Clubs\Models\Clubs;
 use App\Modules\Backend\Clubs\Repositories\ClubRepositoryInterface;
+use App\Modules\Backend\Users\Repositories\UserRepositoryInterface;
 
 class ClubRepository implements ClubRepositoryInterface
 {
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
     public function loadOptions(string $search = null)
     {
         $result = array();
@@ -88,10 +94,8 @@ class ClubRepository implements ClubRepositoryInterface
 
     public function destroy(Clubs $club)
     {
-        # Delete associate file in storage
-        $club->clearMediaCollection('logo');
-
-        $club->president->delete();
+        /** @param string */
+        $this->userRepository->destroy($club->president->email);
 
         return true;
     }

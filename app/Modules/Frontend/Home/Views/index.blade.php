@@ -85,7 +85,7 @@
             @foreach ($latest as $event)
             <div class="col-lg-6 travel-left">
                 <div class="single-travel media pb-70">
-                    <img class="img-fluid d-flex mr-3" src="img/t1.jpg" alt="">
+                    <img class="img-fluid d-flex mr-3 event-image-home" src="{{ $event->getFirstMediaUrl('cover', 'home') }}" alt="">
                     <div class="dates">
                         <span>{{ Carbon::parse($event->start_at)->isoFormat("DD") }}</span>
                         <p>{{ Carbon::parse($event->start_at)->isoFormat("MMM") }}</p>
