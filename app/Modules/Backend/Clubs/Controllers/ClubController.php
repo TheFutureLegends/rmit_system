@@ -170,6 +170,10 @@ class ClubController extends Controller
 
         $this->authorize('update', $this->club);
 
+        dd( ($this->club)->getMedia('logo') );
+
+        die;
+
         return view('Clubs::form')->with([
             'club' => $this->club
         ]);
@@ -223,7 +227,8 @@ class ClubController extends Controller
 
         $this->authorize('delete', $this->club);
 
-        $this->clubRepository->destroy($this->club);
+        // $this->clubRepository->destroy($this->club);
+        ($this->club)->delete();
 
         return response()->json(['message' => 'Update successfully!', 'status' => 200]);
     }

@@ -273,8 +273,8 @@ class EventController extends Controller
 
         $this->authorize('delete', $this->event);
 
-        ($this->event)->delete();
+        $this->eventRepository->destroy($this->event);
 
-        return response()->json(['message' => 'Update successfully!', 'status' => 200]);
+        return response()->json(['message' => 'Destroy successfully!', 'status' => 204]);
     }
 }

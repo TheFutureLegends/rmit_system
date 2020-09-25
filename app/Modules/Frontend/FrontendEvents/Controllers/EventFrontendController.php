@@ -3,7 +3,7 @@
 namespace App\Modules\Frontend\FrontendEvents\Controllers;
 
 use Illuminate\Support\Facades\DB;
-// use App\Modules\Dashboard\Home\Repositories\DashboardRepositoryInterface;
+use App\Modules\Backend\Events\Repositories\EventRepositoryInterface;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
@@ -13,9 +13,9 @@ use App\Modules\Backend\Events\Models\Events;
 
 class EventFrontendController extends Controller
 {
-    public function __construct()
+    public function __construct(EventRepositoryInterface $eventRepository)
     {
-        # code...
+        $this->eventRepository = $eventRepository;
     }
     /**
      * Show the application dashboard.
@@ -35,7 +35,7 @@ class EventFrontendController extends Controller
 
     public function show($slug)
     {
-        $event = Events::query()->where('slug', $slug)->firstOrFail();
+        $event = $this->eventRepository->findBySlug($slug);
 
         return view("FrontendEvents::detail")->with([
             'event' => $event

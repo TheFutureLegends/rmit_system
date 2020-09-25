@@ -67,6 +67,19 @@ class EventRepository implements EventRepositoryInterface
         return true;
     }
 
+    public function destroy(Events $event)
+    {
+        # Clear media
+        $event->clearMediaCollection('cover');
+
+        $event->clearMediaCollection('file');
+
+        # Delete records
+        $event->delete();
+
+        return true;
+    }
+
     private function format(string $method, array $request)
     {
         $result = array();

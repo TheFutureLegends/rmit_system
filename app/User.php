@@ -71,6 +71,22 @@ class User extends Authenticatable implements HasMedia
                 $model->id = (string) Uuid::generate(4);
             } while ($model->where($model->getKeyName(), $model->id)->first() != null);
         });
+        
+        self::deleting(function ($model) {
+            if ($model->hasRole('president')) {
+                if ($model->president) {
+                    $model->president->clearMediaCollection();
+                }
+
+                if ( !($model->president->event)->isEmpty() ) {
+                    $events = $model->president->event;
+
+                    foreach ($events as $event) {
+                        $event->clearMediaCollection();
+                    }
+                }
+            }
+        });
     }
 
     /**

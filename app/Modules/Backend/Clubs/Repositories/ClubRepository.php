@@ -88,6 +88,9 @@ class ClubRepository implements ClubRepositoryInterface
 
     public function destroy(Clubs $club)
     {
+        # Delete associate file in storage
+        $club->clearMediaCollection('logo');
+
         $club->president->delete();
 
         return true;

@@ -189,9 +189,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($email)
     {
-        //
+        $user = User::query()->where('email', $email)->first();
+
+        if ($user->president) {
+            echo "Exist";
+        } else {
+            echo "Fail";
+        }
+
+        dd($user->president);
     }
 
     /**

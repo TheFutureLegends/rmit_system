@@ -70,6 +70,13 @@ class Clubs extends Model implements HasMedia
     }
 
     /**
+     * Defining collection name
+     *
+     * @var array
+     */
+    public array $collectionName = ['logo'];
+
+    /**
      * Defining new media collection
      *
      * @var null
